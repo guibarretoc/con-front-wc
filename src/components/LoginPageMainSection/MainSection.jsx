@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './mainSection.css';
 import profilePic from "../../assets/Login/perfil.png";
+import login from '../../services/auth/login';
 
 const MainSection = () => {
   const navigate = useNavigate();
@@ -17,12 +18,42 @@ const MainSection = () => {
     setSenha(event.target.value);
   };
 
-  const handleLoginClick = () => {
-    // TODO: service login
+  const handleLoginClick = async () => {
+    let data = {
+      "email": email,
+      "password": senha
+    }
+    
+    try {
+      let response = await login(data);
+      if (response && response.token && response.userType && response.userId) {
+        sessionStorage.setItem("token", response.token);
+        sessionStorage.setItem("userType", response.userType);
+        sessionStorage.setItem("userId", response.userId);
+        sessionStorage.setItem("isLogged", true);
+    
+        console.log("Login bem-sucedido!");
+        redirectAfterLogin(response.userType)
+      } else {
+        console.error("A resposta da API não contém os campos esperados.");
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
   }
 
   const handleSignupClick = () => {
     navigate("/signup")
+  }
+
+  const redirectAfterLogin = (userType) => {
+    if (userType == "ADMIN") {
+      navigate("/adminHome")
+    } else if (userType == "EMPLOYEE") {
+      navigate("/funcionario")
+    } else {
+      navigate("/customerHome")
+    }
   }
 
   return (
@@ -52,8 +83,8 @@ const MainSection = () => {
             Senha
           </label>
           <input 
-            id='ls-email' 
-            type='email' 
+            id='ls-password' 
+            type='password' 
             value={senha} 
             onChange={handleSenhaChange}
           />

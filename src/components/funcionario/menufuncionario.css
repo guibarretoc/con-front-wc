@@ -54,6 +54,7 @@
   background-image: url("../../assets/funcionario/perfil.png");
   height: 100px;
   width: 100px;
+  margin-left: -11px;
   background-size: cover;
   border-radius: 50%;
 }
@@ -62,6 +63,7 @@
   font-size: 20px;
   margin: 5px;
   color: white;
+  margin-left: 16px;
 }
 
 .funcio {
@@ -72,6 +74,7 @@
   border-bottom-left-radius: 50px;
   position: relative;
   padding: 0 10px;
+  width: 20%;
 }
 
 .dropdown-toggle {
@@ -79,6 +82,7 @@
   cursor: pointer;
   color: white;
   margin-left: 10px;
+  margin-left: auto;
 }
 
 .dropdown-menu {
@@ -109,4 +113,8 @@
   margin: 0;
   border-left: 200px solid transparent; /* Adiciona uma borda transparente à esquerda */
   border-top: 1px solid white; /* Barra de separação branca */
+}
+
+.textos h3, #logo {
+  cursor: pointer;
 }

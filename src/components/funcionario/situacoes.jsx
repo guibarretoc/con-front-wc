@@ -1,9 +1,9 @@
 import '../funcionario/situacoes.css'
 const Situacoe = () =>{
     const funData ={
-        abertos: "8",
-        atendimento:"6",
-        fechados:"10",
+        abertos: "0",
+        atendimento:"0",
+        fechados:"0",
     }
     return(
         <div>
