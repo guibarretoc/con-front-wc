@@ -14,7 +14,7 @@
 }
 
 .menu-funcionario h3 {
-  margin: 2rem;
+  margin: 1.5rem;
 }
 
 .menu-funcionario h3:hover {
@@ -23,7 +23,7 @@
 
 .menu-funcionario .textos {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   font-size: 1rem;
@@ -40,7 +40,7 @@
   border-radius: 15px;
   padding: 0.5rem;
   border: 1px solid #379E53;
-  width: 500px;
+  width: 300px;
   margin-right: 1rem;
 }
 
@@ -52,8 +52,8 @@
 
 .imgPerfil {
   background-image: url("../../assets/funcionario/perfil.png");
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   margin-left: -11px;
   background-size: cover;
   border-radius: 50%;
@@ -87,11 +87,11 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 100px; /* ajustado para a posição correta */
+  top: 80px;
   right: 0;
-  background-color: #245631; /* cor verde */
+  background-color: #245631;
   border: 1px solid #ccc;
-  border-left: 20px solid #245631; /* borda à esquerda */
+  border-left: 20px solid #245631;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   z-index: 1000;
@@ -106,13 +106,13 @@
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #245631; /* cor verde escura para hover */
+  background-color: #245631; 
 }
 
 .dropdown-menu hr {
   margin: 0;
-  border-left: 200px solid transparent; /* Adiciona uma borda transparente à esquerda */
-  border-top: 1px solid white; /* Barra de separação branca */
+  border-left: 200px solid transparent; 
+  border-top: 1px solid white; 
 }
 
 .textos h3, #logo {

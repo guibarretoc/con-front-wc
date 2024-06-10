@@ -7,6 +7,17 @@ import AdminHome from './../../pages/AdminHome';
 
 const NavbarAdm = () => {
     const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
+
+    const handleLogoutClick = () => {
+        navigate('/login')
+        sessionStorage.clear()
+      }
 
     const handleCadastroClick = () => {
         navigate("/cadastroColaborador")    
@@ -16,6 +27,7 @@ const NavbarAdm = () => {
         try {
             let adminName = await getAdminData(sessionStorage.getItem("userId"))
             if (adminName) {
+                setUsername(adminName);
                 sessionStorage.setItem("username", adminName);
             }
         } catch (error) {
@@ -46,8 +58,19 @@ const NavbarAdm = () => {
                 </div>
                 <div className={"perfil"}>
                     <img className="foto-perfil" />
-                    <h3>{sessionStorage.getItem("username")}</h3>
+                    <h3>{sessionStorage.getItem("username") != null ? sessionStorage.getItem("username") : username}</h3>
+                    <div className="adm-dropdown-toggle" onClick={toggleDropdown}>
+                        {dropdownVisible ? '▲' : '▼'}
+                    </div>
+                    {dropdownVisible && (
+                    <div className="adm-dropdown-menu">
+                      <p className="adm-dropdown-item">Perfil</p>
+                      <hr />
+                      <p className="adm-dropdown-item" onClick={handleLogoutClick}>Logout</p>
+                    </div>
+                    )}
                 </div>
+                
 
             </nav>
             <div className={"menuAdm2"}>
