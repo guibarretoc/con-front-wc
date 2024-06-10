@@ -1,0 +1,50 @@
+h1 {
+  margin-left: auto;
+}
+
+#dept-tickets-below-navbar {
+  display: flex;
+}
+
+#dept-tickets-scroll-container {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+  padding-top: 1rem;
+}
+
+#dept-tickets-main-content {
+  display: flex;
+  /* width: max-content; */
+  width: 82vw;
+  flex-direction: row;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+#dept-tickets-main-content h1 {
+  font-size: 1.25rem;
+}
+
+.dept-tickets-list {
+  border: 1px solid black;
+  background-color: #F9F6EE;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-right: 3rem;
+  align-self: flex-start;
+  min-width: 32%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+
+#dept-tickets-main-content h1 {
+  font-size: 1.25rem;
+}
+
+
+#dept-tickets-abertos {
+  align-self: flex-start;  
+}

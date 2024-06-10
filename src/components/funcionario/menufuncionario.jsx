@@ -28,6 +28,10 @@ const Menufuncionario = () => {
     navigate('/funcionario');
   }
 
+  const handleTicketsClick = () => {
+    navigate('/department-tickets');
+  }
+
   const getEmployeeInfo = async() => {
     try {
         let name = await getEmployeeData(sessionStorage.getItem("userId"))
@@ -57,7 +61,7 @@ const Menufuncionario = () => {
           <h2 id={"logo"} onClick={handleLogoClick}>WayClient</h2>
           
           <div className={"textos"}>
-            <h3>Tickets</h3>
+            <h3 onClick={handleTicketsClick}>Tickets</h3>
             <h3>Mensagens</h3>
             <h3>Histórico</h3>
             <input type="text" placeholder="Pesquisar"></input>

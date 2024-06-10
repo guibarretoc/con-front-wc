@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "./mainfuncionario.css";
 
 const Mainfuncionario = () => {
+  const navigate = useNavigate();
+
+  const handleTicketsClick = () => {
+    navigate("/department-tickets")
+  }
+
   return (
     <div>
       <div className="titulo">
@@ -13,7 +20,7 @@ const Mainfuncionario = () => {
             <p>Cadastrar Cliente</p>
             <div className="fa-cadastrar"></div>
           </button>
-          <button className="btn btn-t">
+          <button className="btn btn-t" onClick={handleTicketsClick}>
             <p>Tickets</p>
             <div className="fa-ticket"></div>
           </button>

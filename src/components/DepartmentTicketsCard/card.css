@@ -1,0 +1,20 @@
+#card-flex-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #F4F4F4;
+  border: 1px solid #BAB8B8;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#card-ticket-data{
+  display: flex;
+  flex-direction: column;
+}
+
+#card-emplyee-picture {
+  display: flex;
+  margin-left: auto;
+}

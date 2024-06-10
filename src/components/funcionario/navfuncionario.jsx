@@ -12,6 +12,7 @@ const Navfuncionario = () => {
       const employeeId = sessionStorage.getItem("userId");
       const data = await getDepartmentByEmployeeId(employeeId);
       setDepartment(data);
+      sessionStorage.setItem("department_id", data.id)
     };
 
     fetchDepartment();

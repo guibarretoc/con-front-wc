@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage';
 import CustomerHome from './pages/CustomerHome';
 import AdminHome from './pages/AdminHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import DepartmentTickets from './pages/DepartmentTickets';
 
 function Main() {
   //const isLogged = sessionStorage.getItem(isLogged);
@@ -36,6 +37,15 @@ function Main() {
           element={
             <ProtectedRoute allowedTypes={['EMPLOYEE']}>
               <FuncionarioHomePage />
+            </ProtectedRoute>
+          }
+        />
+        {/* TODO: turn into a private route for EMPLOYEE */}
+        <Route 
+          path='department-tickets' 
+          element={
+            <ProtectedRoute allowedTypes={['EMPLOYEE']}>
+              <DepartmentTickets />
             </ProtectedRoute>
           }
         />
