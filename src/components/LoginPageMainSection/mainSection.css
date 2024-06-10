@@ -85,3 +85,7 @@
   color: #379E53;
   cursor: pointer;
 }
+
+#ls-welcome {
+  margin-left: -10px;
+}

@@ -60,7 +60,7 @@ const MainSection = () => {
     <div>
       <section id='ls-main-section'>
         {/* title */}
-        <h1 className='ls-text'>Bem vindo de volta!</h1>
+        <h1 id='ls-welcome' className='ls-text'>Bem vindo de volta!</h1>
         {/* profile pic */}
         <div id='ls-profile-pic'>
           <img src={profilePic}/>
