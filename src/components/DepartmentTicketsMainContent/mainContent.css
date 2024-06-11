@@ -9,9 +9,10 @@ h1 {
 #dept-tickets-main-content {
   display: flex;
   height: 89vh;
-  width: 82vw;
+  width: 82.4vw;
   /* max-width: 100%; */
   /* border: 1px solid black; */
+  gap: 1rem;
   padding: 2rem;
   overflow-x: auto;
   overflow-y: hidden;
@@ -20,17 +21,29 @@ h1 {
 }
 
 .dept-tickets-list {
-  border: 1px solid #BAB8B8;
   background-color: #F9F6EE;
-  padding: 1.25rem;
-  border-radius: 16px;
-  margin-right: 1rem;
+  padding-right: 1.25rem;
   align-self: flex-start;
   min-width: 28%;
   flex-shrink: 0;
   box-sizing: border-box;
   max-height: 79vh;
   overflow-y: auto;
+}
+
+.dept-tickets {
+  border: 1px solid #BAB8B8;
+  background-color: #F9F6EE;
+  padding-top: 1.25rem;
+  padding-left: 1.25rem;
+  padding-bottom: 1.5rem;
+  border-radius: 16px;
+  min-width: 28%;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding-right: 1rem;
 }
 
 #dept-tickets-main-content h1 {

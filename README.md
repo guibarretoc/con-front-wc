@@ -9,8 +9,14 @@
 - Giovanna Cunha
 - Patrícia Ester
 
-## Referências
-- [Arquitetura](https://www.knowledgehut.com/blog/web-development/react-js-architecture) - Leia se você não sabe onde colocar x parte do código
-- [React router](https://reactrouter.com/en/main/start/tutorial) - Leia se você tem dúvidas sobre o roteamento
-- [Axios](https://axios-http.com/ptbr/docs/intro) - Leia se você tem dúvidas sobre a conexão com o backend
-- [React redux](https://react-redux.js.org/introduction/getting-started) - Leia se você tem dúvidas sobre o gerenciamento de estado global
+## Como rodar o projeto
+1. Clone o projeto: ```git clone https://github.com/GabrielLima07/con-front-wc.git``` 
+2. Instale as depedências: ```npm install```
+3. Rode o projeto: ```npm run dev```
+
+**Observação Para acessar várias rotas, você precisará fazer login, mas para enviar requisições de login e cadastro, você precisará do backend rodando, ou do url do backend publicado**
+
+## Conexão com o backend
+1. Crie um arquivo chamado .env na root do projeto
+2. Insira a URL do backend em VITE_API_BASE_URL (para fins de desenvolvimento é mais efeciente rodar o backend localmente, portanto http://localhost:8080)
+3. Com o servidor rodando você será capaz de fazer login e as demais requisições presentes no front com sucesso
