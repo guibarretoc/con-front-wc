@@ -17,33 +17,33 @@ const MainContent = () => {
   }, []);
 
   return (
-    <div id="dept-tickets-scroll-container">
+    <div>
       <div id="dept-tickets-main-content">
         <section className='dept-tickets-list'>
           <h1>Tickets abertos</h1>
           {tickets.map((ticket) => {
-            return ticket.status === "Pendente" ? <Card key={ticket.id} /> : null;
+            return ticket.status === "Pendente" ? <Card ticket={ticket} key={ticket.id} /> : null;
           })}
         </section>
 
         <section className='dept-tickets-list'>
           <h1>Tickets em atendimento</h1>
           {tickets.map((ticket) => {
-            return ticket.status === "Em atendimento" ? <Card key={ticket.id} /> : null;
+            return ticket.status === "Em atendimento" ? <Card ticket={ticket} key={ticket.id} /> : null;
           })}
         </section>
 
         <section className='dept-tickets-list'>
           <h1>Tickets em impedimento</h1>
           {tickets.map((ticket) => {
-            return ticket.status === "Em impedimento" ? <Card key={ticket.id} /> : null;
+            return ticket.status === "Em impedimento" ? <Card ticket={ticket} key={ticket.id} /> : null;
           })}
         </section>
 
         <section className='dept-tickets-list'>
           <h1>Tickets fechados</h1>
           {tickets.map((ticket) => {
-            return ticket.status === "Fechado" ? <Card key={ticket.id} /> : null;
+            return ticket.status === "Fechado" ? <Card ticket={ticket} key={ticket.id} /> : null;
           })}
         </section>
       </div>

@@ -6,45 +6,57 @@ h1 {
   display: flex;
 }
 
-#dept-tickets-scroll-container {
-  display: flex;
-  width: 100%;
-  overflow-x: auto;
-  box-sizing: border-box;
-  padding-top: 1rem;
-}
-
 #dept-tickets-main-content {
   display: flex;
-  /* width: max-content; */
+  height: 89vh;
   width: 82vw;
-  flex-direction: row;
+  /* max-width: 100%; */
+  /* border: 1px solid black; */
   padding: 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
   box-sizing: border-box;
-}
-
-#dept-tickets-main-content h1 {
-  font-size: 1.25rem;
+  background-image: linear-gradient(#d9d9d96e, #F9F6EE);
 }
 
 .dept-tickets-list {
-  border: 1px solid black;
+  border: 1px solid #BAB8B8;
   background-color: #F9F6EE;
   padding: 1.25rem;
-  border-radius: 8px;
-  margin-right: 3rem;
+  border-radius: 16px;
+  margin-right: 1rem;
   align-self: flex-start;
-  min-width: 32%;
+  min-width: 28%;
   flex-shrink: 0;
   box-sizing: border-box;
+  max-height: 79vh;
+  overflow-y: auto;
 }
-
 
 #dept-tickets-main-content h1 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
-
 
 #dept-tickets-abertos {
   align-self: flex-start;  
+}
+
+/* Barra de rolagem inteira */
+::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem vertical */
+  height: 12px; /* Altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
 }
