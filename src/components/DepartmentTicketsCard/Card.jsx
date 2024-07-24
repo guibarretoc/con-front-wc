@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './card.css';
 import getCustomerByTicketId from './../../services/ticket/getCustomerByTicketId';
 import Modal from './../DepartmentTicketsModal/Modal';
 
@@ -32,12 +31,12 @@ const Card = ({ ticket }) => {
 
   return (
     <div>
-      <div id='card-main-div' onClick={openModal}>
-        <div id='card-flex-container'>
-          <div id='card-ticket-data'>
-            <p id='card-ticket-description'>{ticket.title}</p>
-            <p id='card-ticket-id'>{ticket.id}</p>
-            <p id='card-ticket-opened'>Aberto dia {ticket.date} por {customerName}</p>
+      <div onClick={openModal}>
+        <div className='flex flex-row mt-1 mr-2  bg-[#F4F4F4] border border-[#BAB8B8] rounded-md cursor-pointer px-2 py-1'>
+          <div>
+            <p className='text-[#1E1E1E] text-sm'>{ticket.title}</p>
+            <p className='text-[#666363] text-xs'>{ticket.id}</p>
+            <p className='text-[#1E1E1E] text-sm'>Aberto dia {ticket.date} por {customerName}</p>
           </div>
           {/* <div id='card-emplyee-picture'>
             pic
