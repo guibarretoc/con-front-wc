@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import "./mainContent.css";
 import getDepartmentTickets from '../../services/department/getDepartmentTickets';
 import Card from "../DepartmentTicketsCard/Card";
 
@@ -17,38 +16,38 @@ const MainContent = () => {
   }, []);
 
   return (
-    <div id="dept-ticket-main-div">
-      <div id="dept-tickets-main-content">
-        <section className='dept-tickets'>
-          <h1>Tickets abertos</h1>
-          <div className='dept-tickets-list'>
+    <div className="overflow-x-auto px-1 py-2 h-screen">
+      <div className='flex gap-2 w-screen items-start'>
+        <section className='border border-[#BAB8B8] rounded-lg bg-[#F9F6EE] flex-shrink-0 w-full sm:w-2/4 lg:w-1/4 py-2 pl-3'>
+          <h2 className='pl-2 text-sm lg:text-base'>Tickets abertos</h2>
+          <div className='flex flex-col gap-1 w-full pb-1'>
             {tickets.map((ticket) => {
               return ticket.status === "Pendente" ? <Card ticket={ticket} key={ticket.id} /> : null;
             })}
           </div>
         </section>
 
-        <section className='dept-tickets'>
-          <h1>Tickets em atendimento</h1>
-          <div className='dept-tickets-list'>
+        <section className='border border-[#BAB8B8] rounded-lg bg-[#F9F6EE] flex-shrink-0 w-full sm:w-2/4 lg:w-1/4 py-2 pl-3'>
+          <h2 className='pl-2 text-sm lg:text-base'>Tickets em atendimento</h2>
+          <div className='flex flex-col gap-1 w-full pb-1'>
             {tickets.map((ticket) => {
               return ticket.status === "Em atendimento" ? <Card ticket={ticket} key={ticket.id} /> : null;
             })}
           </div>
         </section>
 
-        <section className='dept-tickets'>
-          <h1>Tickets em impedimento</h1>
-          <div className='dept-tickets-list'>
+        <section className='border border-[#BAB8B8] rounded-lg bg-[#F9F6EE] flex-shrink-0 w-full sm:w-2/4 lg:w-1/4 py-2 pl-3'>
+          <h2 className='pl-2 text-sm lg:text-base'>Tickets em impedimento</h2>
+          <div className='flex flex-col gap-1 w-full pb-1'>
             {tickets.map((ticket) => {
               return ticket.status === "Em impedimento" ? <Card ticket={ticket} key={ticket.id} /> : null;
             })}
           </div>
         </section>
 
-        <section className='dept-tickets'>
-          <h1>Tickets fechados</h1>
-          <div className='dept-tickets-list'>
+        <section className='border border-[#BAB8B8] rounded-lg bg-[#F9F6EE] flex-shrink-0 w-full sm:w-2/4 lg:w-1/4 py-2 pl-3'>
+          <h2 className='pl-2 text-sm lg:text-base'>Tickets fechados</h2>
+          <div className='flex flex-col gap-1 w-full pb-1'>
             {tickets.map((ticket) => {
               return ticket.status === "Fechado" ? <Card ticket={ticket} key={ticket.id} /> : null;
             })}

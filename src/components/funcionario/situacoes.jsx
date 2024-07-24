@@ -22,7 +22,6 @@ const Situacoe = () =>{
             setEmAtendimento(countEmAtendimento(data))
             setEmImpedimento(countEmImpedimento(data))
             setFechados(countFechado(data))
-            //console.log(tickets);
         }
 
         fetchDepartmentTickets();
