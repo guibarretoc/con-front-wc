@@ -1,5 +1,4 @@
 import React from 'react';
-import "./footer.css";
 import twitterLogo from "../../assets/Home/twitter.png";
 import instagramLogo from "../../assets/Home/instagram.png";
 import facebookLogo from "../../assets/Home/facebook.png";
@@ -7,38 +6,42 @@ import facebookLogo from "../../assets/Home/facebook.png";
 const Footer = () => {
   return (
     <div>
-      <footer className={"rodape-login"}>
-        <div className={"rodape-login-div"}>
-          <ul id={"col1-login"}>
-            <li><h2>Institucional</h2></li>
-            <li>Sobre</li>
-            <li>Contato</li>
-            <li>Política de Privacidade</li>
-            <li>Termos de Uso</li>
-          </ul>
-          <ul id={"col2-login"}>
-            <li><h2>Atendimento</h2></li>
-            <li>Segunda à Sexta das 8 às 18h</li>
-            <li>(81) 99999-9999</li>
-           </ul>
-          <ul id={"col3-login"}>
-            <li><h2>Nossas Redes</h2></li>
-            <div>
-              <li id={"icon-1-login"}>
-                <img src={twitterLogo} />
-              </li>
-              <li id={"icon-2-login"}>
-                <img src={instagramLogo} />
-              </li>
-              <li id={"icon-3-login"}>
-                <img src={facebookLogo} />
-              </li>
+      <footer className="bg-[#379E53] text-white mt-12">
+        <div className="rodape flex justify-around text-center py-24 px-4 h-62"> 
+          <div className="col1">
+            <h3 className="font-semibold mb-4">Institucional</h3>
+            <ul className="list-none">
+              <li><a href="#" className="text-white">Sobre</a></li>
+              <li><a href="#" className="text-white">Contato</a></li>
+              <li><a href="#" className="text-white">Política de Privacidade</a></li>
+              <li><a href="#" className="text-white">Termos de Uso</a></li>
+            </ul>
+          </div>
+          <div className="col2">
+            <h3 className="font-semibold mb-4">Atendimento</h3>
+            <ul className="list-none">
+              <li>Segunda à Sexta das 8 às 18h</li>
+              <li>(81) 99999-9999</li>
+            </ul>
+          </div>
+          <div className="col3">
+            <h3 className="font-semibold mb-4">Nossas Redes</h3>
+            <div className="flex justify-center space-x-4">
+              <a href="#" className="w-8 h-8 bg-contain bg-center bg-no-repeat">
+                <img src={twitterLogo} alt="Twitter Logo" className="w-full h-full" />
+              </a>
+              <a href="#" className="w-8 h-8 bg-contain bg-center bg-no-repeat">
+                <img src={instagramLogo} alt="Instagram Logo" className="w-full h-full" />
+              </a>
+              <a href="#" className="w-8 h-8 bg-contain bg-center bg-no-repeat">
+                <img src={facebookLogo} alt="Facebook Logo" className="w-full h-full" />
+              </a>
             </div>
-          </ul>  
+          </div>
         </div>
       </footer>
     </div>
   )
 }
 
-export default Footer
+export default Footer;
