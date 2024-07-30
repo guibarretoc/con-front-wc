@@ -11,15 +11,14 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
 
 function Main() {
-  //const isLogged = sessionStorage.getItem(isLogged);
-  //const userType = sessionStorage.getItem(userType)
+
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={
           <Home />
-          //(isLogged == true && userType == "CUSTOMER") ? <CustomerHome /> :<Home />
+         
         } />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
