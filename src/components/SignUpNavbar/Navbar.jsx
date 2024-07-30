@@ -1,23 +1,24 @@
 import React from 'react';
-import "./navbar.css";
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <div>
-      <nav className={"menu-content"}> 
-        <div className={"menu"}>
-          <h2 id={"su-logo"} onClick={handleLogoClick}>WayClient</h2>
-        </div>
-      </nav>
-    </div>
-  )
-}
+    <nav className="bg-[#379E53] text-white font-bold">
+      <div className="flex justify-center items-center h-full py-7 px-16 text-center">
+        <h2 className="text-5xl font-bold cursor-pointer" onClick={handleLogoClick}>
+          WayClient
+        </h2>
+      </div>
+    </nav>
+  </div>
+  );
+};
 
 export default Navbar;

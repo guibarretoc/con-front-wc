@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "./mainSection.css";
 import { useNavigate } from 'react-router-dom';
 import { isEquals } from './../../utils/isEquals';
 import signUpCustomer from '../../services/auth/signUpCustomer';
@@ -33,12 +32,11 @@ const MainSection = () => {
     setConfirmeSenha(event.target.value);
   };
 
-  const handleCadastrarClick = async() => {
+  const handleCadastrarClick = async () => {
     if (isEquals(senha, confirmeSenha)) {
       let data = getFormData();
-            
       let response = await signUpCustomer(data);
-      sessionStorage.setItem("debug-response", response)
+      sessionStorage.setItem("debug-response", response);
 
       if (response === '200') {
         setIsModalOpen(true);
@@ -47,7 +45,7 @@ const MainSection = () => {
       }
 
     } else {
-      alert("As senhas devem ser idênticas")
+      alert("As senhas devem ser idênticas");
     }
   };
 
@@ -58,108 +56,117 @@ const MainSection = () => {
       email: email,
       role: "CUSTOMER",
       password: senha
-    }
-  }
+    };
+  };
 
   const handleGoToLogin = () => {
     navigate('/login');
   };
 
-
   return (
-    <div id='su-main-div'>
-      <section id="su-col-one">
-        <div>
-          <h1 id="su-col-one-main-title">
+    <div className="flex flex-wrap justify-center items-center m-4 mt-20 md:mt-15"> 
+      <section id="su-col-one" className="flex flex-col justify-center items-center gap-y-8 w-full md:w-1/2 mb-8">         
+      <div>
+          <h1 className="text-5xl text-green-500 font-bold" id="su-col-one-main-title">
             WayClient
           </h1>
         </div>
         <div>
-          <h2 id="su-col-one-sec-title">
+          <h2 className="text-4xl text-green-500 text-center" id="su-col-one-sec-title">
             Com a gente o seu caminho fica mais seguro.
           </h2>
         </div>
       </section>
-      <section id="su-col-two">
-        <div id="su-col-two-main-title">
-          <h1>
-            Cadastre-se
-          </h1>
+      <section id="su-col-two" className="flex flex-col items-center justify-center w-full md:w-1/2 bg-white rounded-lg shadow-[0_10px_60px_-20px_rgba(0,0,0,0.3)] p-5">
+        <div className="text-5xl text-center mb-8 mt-9" id="su-col-two-main-title">
+          Cadastre-se
         </div>
-        <div className='su-input'>
-          <label className='ls-text'>
+        <div className="su-input w-full max-w-md mb-4">
+          <label className="ls-text text-lg">
             Nome completo
           </label>
-          <input 
-            className='su-form-field'
-            type='text'
+          <input
+            className="su-form-field w-full py-2 px-3 text-xl border border-[#379E53] rounded-lg"
+            type="text"
             value={nomeCompleto}
             onChange={handleNomeCompletoChange}
           />
         </div>
-        <div className='su-input'>
-          <label className='ls-text'>
+        <div className="su-input w-full max-w-md mb-4">
+          <label className="ls-text text-lg">
             Telefone
           </label>
-          <input 
-            className='su-form-field'
-            type='tel'
+          <input
+            className="su-form-field w-full py-2 px-3 text-xl border border-[#379E53] rounded-lg"
+            type="tel"
             value={telefone}
             onChange={handleTelefoneChange}
           />
         </div>
-        <div className='su-input'>
-          <label className='ls-text'>
+        <div className="su-input w-full max-w-md mb-4">
+          <label className="ls-text text-lg">
             Email
           </label>
-          <input 
-            className='su-form-field' 
-            type='email'
+          <input
+            className="su-form-field w-full py-2 px-3 text-xl border border-[#379E53] rounded-lg"
+            type="email"
             value={email}
             onChange={handleEmailChange}
           />
         </div>
-        <div className='su-input'>
-          <label className='ls-text'>
+        <div className="su-input w-full max-w-md mb-4">
+          <label className="ls-text text-lg">
             Senha
           </label>
-          <input 
-            className='su-form-field' 
-            type='password'
+          <input
+            className="su-form-field w-full py-2 px-3 text-xl border border-[#379E53] rounded-lg"
+            type="password"
             value={senha}
             onChange={handleSenhaChange}
           />
         </div>
-        <div className='su-input'>
-          <label className='ls-text'>
+        <div className="su-input w-full max-w-md mb-4">
+          <label className="ls-text text-lg">
             Confirme sua senha
           </label>
-          <input 
-            className='su-form-field' 
-            type='password'
+          <input
+            className="su-form-field w-full py-2 px-3 text-xl border border-[#379E53] rounded-lg"
+            type="password"
             value={confirmeSenha}
             onChange={handleConfirmeSenhaChange}
           />
         </div>
-        <div id='ls-access-btn'>
-          <button onClick={handleCadastrarClick}>
+        <div className="mt-5 flex items-center">
+          <input type="checkbox" className="border rounded-lg mr-2 border-[#379E53]" />
+          <span>
+            Eu aceito os <a href="#" className="text-custom-color font-semibold text-[#379E53]">Termos de uso</a> & <a href="#" className="text-custom-color font-semibold text-[#379E53]">Privacy Policy</a>
+          </span>
+        </div>
+        <div className="mt-8">
+          <button
+            className="bg-green-500 py-4 px-16 text-center text-white rounded-lg hover:bg-green-600 transition duration-300 block mx-auto text-xl"
+            onClick={handleCadastrarClick}
+          >
             Cadastrar
           </button>
         </div>
       </section>
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="modal-content">
-              <h2>Cadastro realizado com sucesso!</h2>
-              <p>Agora você pode fazer o login.</p>
-              <button onClick={handleGoToLogin}>Ir para Login</button>
-            </div>
+        <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="modal bg-white p-8 rounded-lg shadow-lg text-center">
+            <h2 className="text-2xl font-bold mb-4">Cadastro realizado com sucesso!</h2>
+            <p className="mb-4">Agora você pode fazer o login.</p>
+            <button
+              className="bg-[#379E53] text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300"
+              onClick={handleGoToLogin}
+            >
+              Ir para Login
+            </button>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default MainSection;
