@@ -40,7 +40,9 @@
     background-color: #245631;
     display: flex;
     width: 20%;
-    padding: 0.7rem 1rem;
+    padding: 0.0rem 1rem;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 .perfil h3{
@@ -52,6 +54,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     padding: 2rem;
+    margin-left: -16px;
 }
 
 .menuAdm2 {
@@ -82,4 +85,42 @@
 
 .menuAdm h3 {
     margin-right: 4rem;
+}
+
+.adm-dropdown-toggle {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    margin-left: auto;
+    margin-top: 1rem;
+}
+
+.adm-dropdown-menu {
+    position: absolute;
+    top: 63px;
+    right: 0;
+    background-color: #245631;
+    border: 1px solid #ccc;
+    border-left: 20px solid #245631;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    z-index: 1000;
+    color: white;
+}
+
+.adm-dropdown-menu .adm-dropdown-item {
+    margin: 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.adm-dropdown-menu .adm-dropdown-item:hover {
+    background-color: #245631;
+}
+
+.adm-dropdown-menu hr {
+    margin: 0;
+    border-left: 200px solid transparent;
+    border-top: 1px solid white;
 }

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "../CadastroColaborador/cadastroColaborador.css"
 import NavbarAdm from "../NavbarAdm/navbarAdm";
+import { isEquals } from './../../utils/isEquals';
+import signUpEmployee from './../../services/auth/signUpEmployee';
 
 const cadastroColaborador = () => {
 
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [senhaRepetida, setSenhaRepetida] = useState('');
     const [departamento, setDepartament] = useState('');
 
     const handleNomeChange = (event) => {
@@ -14,20 +17,53 @@ const cadastroColaborador = () => {
       };
     
     const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-      };
-    
-      const handleSenhaChange = (event) => {
-        setSenha(event.target.value);
-      };
+      setEmail(event.target.value);
+    };
 
-      const handleDepartamentoChange = (event) => {
+    const handleSenhaChange = (event) => {
+      setSenha(event.target.value);
+    };
+
+    const handleSenhaRepetidaChange = (event) => {
+        setSenhaRepetida(event.target.value);
+    };
+
+    const handleDepartamentoChange = (event) => {
         setDepartament(event.target.value);
-      }
+    }
 
-      const handleCadastroColaboradorClick = () => {
-        
-      }
+    const handleCadastroColaboradorClick = async() => {
+        if (isEquals(senha, senhaRepetida)) {
+            let data = getFormData();
+            
+            let response = await signUpEmployee(data);
+
+            if (response == 200) {
+                resetFormFields();
+                alert("Colaborador cadastro com sucesso");
+            } else {
+                alert("Falha ao cadastrar colaborador");
+            }
+        }
+    }
+
+    const getFormData = () => {
+        return {
+            email: email,
+            name: nome,
+            password: senha,
+            role: "EMPLOYEE",
+            departmentName: departamento
+        }
+    }
+
+    const resetFormFields = () => {
+        setEmail('')
+        setNome('')
+        setSenha('')
+        setSenhaRepetida('')
+        setDepartament('')
+    }
 
     return (
         <div>
@@ -45,7 +81,7 @@ const cadastroColaborador = () => {
                         <label className="text">Senha de Acesso</label>
                         <input type="password" id="input-senha" value={senha} onChange={handleSenhaChange} />
                         <label className="text">Repita a senha</label>
-                        <input type="password" id="input-senha" />
+                        <input type="password" id="input-senha" value={senhaRepetida} onChange={handleSenhaRepetidaChange}/>
                     </div>
 
                     <div className="form2">

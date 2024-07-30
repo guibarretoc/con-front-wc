@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../NavbarAdm/navbarAdm.css"
 import fotoPerfil from "../../assets/Login/perfil.png"
+import { useNavigate } from "react-router-dom";
+import getAdminData from './../../services/admin/getAdminData';
+import AdminHome from './../../pages/AdminHome';
 
-const navbarAdm = () => {
+const NavbarAdm = () => {
+    const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
+
+    const handleLogoutClick = () => {
+        navigate('/login')
+        sessionStorage.clear()
+      }
+
+    const handleCadastroClick = () => {
+        navigate("/cadastroColaborador")    
+    }
+
+    const getAdminInfo = async() => {
+        try {
+            let adminName = await getAdminData(sessionStorage.getItem("userId"))
+            if (adminName) {
+                setUsername(adminName);
+                sessionStorage.setItem("username", adminName);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+
+    useEffect(() => {
+        getAdminInfo();
+    }, []);
+
     return (
         <div>
             <nav className={"menuAdm-content"}>
@@ -11,7 +48,7 @@ const navbarAdm = () => {
 
                     <div className={"textosAdm"}>
                         <h3>Tickets</h3>
-                        <h3>Cadastro</h3>
+                        <h3 onClick={handleCadastroClick}>Cadastro</h3>
                         <h3>Histórico</h3>
                     </div>
                     <div className={"busca"}>
@@ -21,8 +58,19 @@ const navbarAdm = () => {
                 </div>
                 <div className={"perfil"}>
                     <img className="foto-perfil" />
-                    <h3>Alice Castro</h3>
+                    <h3>{sessionStorage.getItem("username") != null ? sessionStorage.getItem("username") : username}</h3>
+                    <div className="adm-dropdown-toggle" onClick={toggleDropdown}>
+                        {dropdownVisible ? '▲' : '▼'}
+                    </div>
+                    {dropdownVisible && (
+                    <div className="adm-dropdown-menu">
+                      <p className="adm-dropdown-item">Perfil</p>
+                      <hr />
+                      <p className="adm-dropdown-item" onClick={handleLogoutClick}>Logout</p>
+                    </div>
+                    )}
                 </div>
+                
 
             </nav>
             <div className={"menuAdm2"}>
@@ -35,4 +83,4 @@ const navbarAdm = () => {
     )
 }
 
-export default navbarAdm
+export default NavbarAdm
