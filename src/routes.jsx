@@ -9,6 +9,8 @@ import CustomerHome from './pages/CustomerHome';
 import AdminHome from './pages/AdminHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
+import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
+
 
 function Main() {
 
@@ -18,8 +20,8 @@ function Main() {
       <Routes>
         <Route path="/" element={
           <Home />
-         
         } />
+        <Route path="/teste" element={<CentralDeAjudaPage/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route
@@ -52,7 +54,7 @@ function Main() {
           path="/customerHome"
           element={
             <ProtectedRoute allowedTypes={['CUSTOMER']}>
-              <CustomerHome />
+              <CentralDeAjudaPage/>
             </ProtectedRoute>
           }
         />
