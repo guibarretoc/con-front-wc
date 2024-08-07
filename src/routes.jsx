@@ -69,7 +69,11 @@ function Main() {
         />
         <Route path="/create-ticket" 
         element={
-        <CreateTicket />} /> 
+          <ProtectedRoute allowedTypes={'CUSTOMER'}>
+        <CreateTicket />
+        </ProtectedRoute> 
+        }
+        />
       </Routes>
     </Router>
   );
