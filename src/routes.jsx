@@ -9,6 +9,7 @@ import CustomerHome from './pages/CustomerHome';
 import AdminHome from './pages/AdminHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
+import CreateTicket from './pages/CreateTicket'; 
 
 function Main() {
   //const isLogged = sessionStorage.getItem(isLogged);
@@ -17,10 +18,7 @@ function Main() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={
-          <Home />
-          //(isLogged == true && userType == "CUSTOMER") ? <CustomerHome /> :<Home />
-        } />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route
@@ -40,9 +38,8 @@ function Main() {
             </ProtectedRoute>
           }
         />
-        {/* TODO: turn into a private route for EMPLOYEE */}
-        <Route 
-          path='department-tickets' 
+        <Route
+          path="/department-tickets"
           element={
             <ProtectedRoute allowedTypes={['EMPLOYEE']}>
               <DepartmentTickets />
@@ -65,6 +62,9 @@ function Main() {
             </ProtectedRoute>
           }
         />
+        <Route path="/create-ticket" 
+        element={
+        <CreateTicket />} /> 
       </Routes>
     </Router>
   );
