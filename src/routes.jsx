@@ -10,15 +10,20 @@ import AdminHome from './pages/AdminHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
 import CreateTicket from './pages/CreateTicket'; 
+import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
+
 
 function Main() {
-  //const isLogged = sessionStorage.getItem(isLogged);
-  //const userType = sessionStorage.getItem(userType)
+
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/" element={
+          <Home />
+        } />
+        <Route path="/teste" element={<CentralDeAjudaPage/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route
@@ -50,7 +55,7 @@ function Main() {
           path="/customerHome"
           element={
             <ProtectedRoute allowedTypes={['CUSTOMER']}>
-              <CustomerHome />
+              <CentralDeAjudaPage/>
             </ProtectedRoute>
           }
         />
