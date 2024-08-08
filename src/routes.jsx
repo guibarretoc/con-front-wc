@@ -9,6 +9,7 @@ import CustomerHome from './pages/CustomerHome';
 import AdminHome from './pages/AdminHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
+import CreateTicket from './pages/CreateTicket'; 
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
 
 
@@ -18,6 +19,7 @@ function Main() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/" element={
           <Home />
         } />
@@ -41,9 +43,8 @@ function Main() {
             </ProtectedRoute>
           }
         />
-        {/* TODO: turn into a private route for EMPLOYEE */}
-        <Route 
-          path='department-tickets' 
+        <Route
+          path="/department-tickets"
           element={
             <ProtectedRoute allowedTypes={['EMPLOYEE']}>
               <DepartmentTickets />
@@ -65,6 +66,13 @@ function Main() {
               <AdminHome />
             </ProtectedRoute>
           }
+        />
+        <Route path="/create-ticket" 
+        element={
+          <ProtectedRoute allowedTypes={'CUSTOMER'}>
+        <CreateTicket />
+        </ProtectedRoute> 
+        }
         />
       </Routes>
     </Router>

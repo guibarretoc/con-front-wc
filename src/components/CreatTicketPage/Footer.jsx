@@ -6,8 +6,8 @@ import facebookLogo from "../../assets/Home/facebook.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-[#379E53] text-white mt-12">
-        <div className="rodape flex justify-around text-center py-24 px-4 h-62"> 
+      <footer className="bg-[#379E53] text-white mt-5">
+        <div className="rodape flex justify-around text-center py-20 px-4 h-62"> 
           <div className="col1">
             <h3 className="font-semibold mb-4 text-left">Institucional</h3>
             <ul className="list-none text-left">
