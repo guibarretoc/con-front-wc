@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import getCustomerByTicketId from './../../services/ticket/getCustomerByTicketId';
 import Modal from './../DepartmentTicketsModal/Modal';
+import Draggable from '../Draggable/Draggable';
 
 const Card = ({ ticket }) => {
   const [customerName, setCustomerName] = useState('');
@@ -30,7 +31,7 @@ const Card = ({ ticket }) => {
   }
 
   return (
-    <div>
+    <Draggable id={ticket.id}> 
       <div onClick={openModal}>
         <div className='flex flex-row mt-1 mr-2  bg-[#F4F4F4] border border-[#BAB8B8] rounded-md cursor-pointer px-2 py-1'>
           <div>
@@ -49,7 +50,7 @@ const Card = ({ ticket }) => {
         ticket={ticket} 
         customerName={customerName}
       />
-    </div>
+    </Draggable>
   )
 }
 
