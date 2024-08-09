@@ -3,27 +3,39 @@ import getDepartmentTickets from '../../services/department/getDepartmentTickets
 import Card from "../DepartmentTicketsCard/Card";
 import { DndContext } from '@dnd-kit/core';
 import Droppable from "../Droppable/Droppable"
+import putTicketStatus from './../../services/ticket/putTicketStatus';
 
 const MainContent = (props) => {
   const [tickets, setTickets] = useState([]);
 
-  const handleDragEnd = (event) => {
+  const handleDragEnd = async (event) => {
     const { over, active } = event;
-
+  
     if (over && active.id !== over.id) {
-      setTickets((prevTickets) => {
-        return prevTickets.map((ticket) => {
-          if (ticket.id === active.id) {
-            return {
-              ...ticket,
-              status: over.id,
-            };
-          }
-          return ticket;
-        });
-      });
+      const ticketToUpdate = tickets.find(ticket => ticket.id === active.id);
+  
+      if (ticketToUpdate && ticketToUpdate.status !== over.id) {
+        const updatedTicket = await putTicketStatus(active.id, over.id);
+  
+        if (updatedTicket) {
+          setTickets((prevTickets) => {
+            return prevTickets.map((ticket) => {
+              if (ticket.id === active.id) {
+                return {
+                  ...ticket,
+                  status: over.id,
+                };
+              }
+              return ticket;
+            });
+          });
+        } else {
+          console.error('Falha ao atualizar o status do ticket');
+        }
+      }
     }
   };
+  
 
   useEffect(() => {
     const fetchDepartmentTickets = async () => {
