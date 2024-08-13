@@ -4,6 +4,8 @@ import fotoPerfil from "../../assets/Login/perfil.png"
 import { useNavigate } from "react-router-dom";
 import getAdminData from './../../services/admin/getAdminData';
 import AdminHome from './../../pages/AdminHome';
+import "../../assets/Navbar/lupa.png"
+import { Link } from "react-router-dom";
 
 const NavbarAdm = () => {
     const navigate = useNavigate();
@@ -44,15 +46,17 @@ const NavbarAdm = () => {
         <div>
             <nav className={"menuAdm-content"}>
                 <div className={"menuAdm"}>
-                    <h2 id={"logo"}>WayClient</h2>
+                <Link  to='/' className="link ">  <h2 id={"logo"}>WayClient</h2> </Link>
 
                     <div className={"textosAdm"}>
-                        <h3>Tickets</h3>
+                        <h3>Tickets </h3>
                         <h3 onClick={handleCadastroClick}>Cadastro</h3>
                         <h3>Histórico</h3>
                     </div>
                     <div className={"busca"}>
-                        <input type="text" id="busca" placeholder={"Buscar"} />
+                    
+                        <input type="text" id="busca" placeholder={"Buscar"} className="lupa" />
+                     
                     </div>
 
                 </div>
