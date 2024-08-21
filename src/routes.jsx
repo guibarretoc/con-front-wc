@@ -11,6 +11,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
 import HomeAdmPage from './pages/HomeAdm';
+import CreateTicket from './pages/CreateTicket';
 
 
 function Main() {
@@ -68,6 +69,15 @@ function Main() {
               <AdminHome />
             </ProtectedRoute>
           }
+        />
+        <Route
+        path="/Create-Ticket"
+        element={
+          <ProtectedRoute allowedTypes={['CUSTOMER']}>
+            <CreateTicket/>
+          </ProtectedRoute>
+        
+        }
         />
       </Routes>
     </Router>
