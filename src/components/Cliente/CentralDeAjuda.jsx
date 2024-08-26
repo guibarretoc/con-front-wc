@@ -17,7 +17,7 @@ const CentralDeAjuda = () => {
 
   
   const handleTicketsButtonClick = () => {
-    navigate('/create-ticket'); 
+    navigate('/Create-Ticket'); 
   };
 
   return (

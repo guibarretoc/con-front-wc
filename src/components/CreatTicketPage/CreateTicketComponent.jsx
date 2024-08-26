@@ -5,7 +5,7 @@ import MinhasImg from '../../assets/images/MinhasImg.jpeg';
 import relogio from '../../assets/images/relogio.png';
 import email from '../../assets/images/email.png';
 
-function TelaComponent() {
+function CreateTicket() {
   return (
     <div>
       <NavBar />
@@ -60,4 +60,4 @@ function TelaComponent() {
   );
 }
 
-export default TelaComponent;
+export default CreateTicket;
