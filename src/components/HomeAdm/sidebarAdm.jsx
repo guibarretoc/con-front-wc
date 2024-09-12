@@ -7,8 +7,8 @@ const SidebarAdm = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   return (
     <section className="sidebar bg-[#F9F6EE] flex flex-col p-4 shadow-md  fixed bottom-0 left-0 z-10 w-full md:w-1/3 lg:w-1/4 h-auto md:h-screen">
