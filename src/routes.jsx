@@ -12,6 +12,7 @@ import DepartmentTickets from './pages/DepartmentTickets';
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
 import HomeAdmPage from './pages/HomeAdm';
 import CreateTicket from './pages/CreateTicket';
+import PerguntasFrequentes from './pages/PerguntasFrequentes';
 
 
 function Main() {
@@ -75,6 +76,15 @@ function Main() {
         element={
           <ProtectedRoute allowedTypes={['CUSTOMER']}>
             <CreateTicket/>
+          </ProtectedRoute>
+        
+        }
+        />
+        <Route
+        path="/Perguntas-Frequentes"
+        element={
+          <ProtectedRoute allowedTypes={['CUSTOMER']}>
+            <PerguntasFrequentes/>
           </ProtectedRoute>
         
         }

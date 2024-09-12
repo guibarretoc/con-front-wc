@@ -9,7 +9,7 @@ const CentralHeader=()=> {
   const navigation = [
     { name: 'Meus Tickets', href: '#', current: true },
     { name: 'Central de Ajuda', href: '#', current: false },
-    { name: 'FAQ', href: '#', current: false },
+    { name: 'FAQ', href: '/Perguntas-Frequentes', current: false },
     
   ]
   const [username, setUsername] = useState("");
