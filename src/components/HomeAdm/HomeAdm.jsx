@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarAdm from "../NavbarAdm/navbarAdm";
+import Navbar from "../FuncionarioHome/MenuFuncionario"
 import "tailwindcss/tailwind.css";
 import cadastro from "../../assets/HomeAdm/cadastro.png"
 import ticket from "../../assets/HomeAdm/tickets.png"
@@ -13,18 +13,19 @@ const HomeAdm = () => {
   return (
     <div className="homeAdm-container min-h-screen flex flex-col bg-[#D9D9D9]">
       <section className="navbar fixed top-0 left-0 w-full z-20">
-        <NavbarAdm />
+        <Navbar />
       </section>
 
       <section className="flex-grow mt-16 md:mt-32 px-4 md:px-36 ">
         <div className="homeAdm flex flex-col items-center content-center space-x-72">
           
-          <div className="titulo pl-72">
-          <h1 className="text-[#5B5B5B] font-black text-xl md:text-4xl text-center mb-8 ">
-            Bem vindo ao{" "}
-            <span className="text-[#379E53] font-black ">WayClient</span>
-          </h1>
-          </div>
+        <div className="titulo pl-72 mt-8 sm:mt-36 md:mt-0">
+  <h1 className="text-[#5B5B5B] font-black text-xl md:text-4xl text-center mb-8">
+    Bem vindo ao{" "}
+    <span className="text-[#379E53] font-black">WayClient</span>
+  </h1>
+</div>
+
           <div className="tabela flex flex-row md:flex-row md:gap-x-24 justify-center">
             <ul className="mb-8 md:mb-0 space-y-8 text-center text-[#379E53]">
               <li className="font-bold bg-[#F4F4F4] p-4 flex items-center justify-between text-lg md:text-2xl shadow-md rounded-xl 

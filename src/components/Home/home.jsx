@@ -10,7 +10,7 @@ import pen from "../../assets/Home/pen.png"
 import light from "../../assets/Home/light.png"
 import insta from "../../assets/Home/instagram.png"
 import face from "../../assets/Home/facebook.png"
-import twitter from "../../assets/Home/twitter.png"
+
 
 const Home = () => {
   return (
@@ -151,17 +151,14 @@ const Home = () => {
 <br />
 
             <div className="flex justify-around">
-            <ul id="icon-4 ">
-  <img className="object-cover object-center h-auto w-5 "
-   src={twitter} alt="ícone" />
-            </ul>
+    
             <ul id="icon-5">
-            <img className="object-cover object-center h-auto w-5" 
+            <img className="object-cover object-center h-auto w-6" 
           src={insta} 
           alt="ícone" />
             </ul>
             <ul id="icon-6">
-            <img className="object-cover object-center h-auto w-5" 
+            <img className="object-cover object-center h-auto w-6" 
           src={face} 
           alt="ícone" />
             </ul>
