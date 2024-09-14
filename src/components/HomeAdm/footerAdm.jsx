@@ -6,13 +6,16 @@ import light from "../../assets/Home/light.png";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#83B791] py-4 flex flex-col md:flex-row justify-end items-center px-4">
-            <section className="titulo mb-4 md:mb-0">
-                <h5 className="text-white text-sm sm:text-base md:text-xl font-bold mr-8 ">
+        <footer className="bg-[#83B791] py-4 flex flex-col md:flex-row justify-between items-center px-4">
+         
+            <section className="titulo mb-4 md:mb-0 w-full md:w-auto text-center md:text-left ml-96 " >
+                <h5 className="text-white text-sm sm:text-base md:text-xl font-bold ">
                     Por que o WayClient?
                 </h5>
             </section>
-            <div className="w-full overflow-x-auto">
+
+      
+            <div className="w-full md:w-auto overflow-x-auto">
                 <section className="caixas-content flex flex-row justify-center items-center space-x-4 min-w-[800px]">
                     <div className="caixa bg-white w-full sm:w-48 md:w-64 text-center p-2 sm:p-3 md:p-4 rounded-2xl shadow-md">
                         <div className="flex justify-center mb-2">
