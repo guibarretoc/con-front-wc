@@ -6,7 +6,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const getEmployeeData = async(id) => {
   try {
     const token = sessionStorage.getItem("token");
-    const response = await axios.get(`${API_BASE_URL}/admin/${id}`, {
+    const response = await axios.get(`${API_BASE_URL}/employee/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
