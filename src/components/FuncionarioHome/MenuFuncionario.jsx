@@ -10,17 +10,25 @@ const MenuFuncionario=()=> {
     { name: 'Mensagens', href: '#', current: false },
     { name: 'Histórico', href: '#', current: false },
   ]
-  const [username, setUsername] = useState("");
-  
+  const [username, setUsername] = useState("")
+  const [loading, setLoading] = useState(true)
   const getEmployeeInfo = async() => {
+    const userId = sessionStorage.getItem("userId")
     try {
+      if (!userId) {
+        console.log("Id do usuário não encontrado na sessionStorage.");
+        return;
+      }
+
         let name = await getEmployeeData(sessionStorage.getItem("userId"))
         if (name) {
-            sessionStorage.setItem("username", name);
+            sessionStorage.setItem("username", name)
             setUsername(name);
         }
     } catch (error) {
         console.log(error)
+    } finally {
+      setLoading(false)
     }
   };
   
@@ -39,7 +47,7 @@ const MenuFuncionario=()=> {
     return classes.filter(Boolean).join(' ')
   }
 
-    if (!username) {
+   if (!username) {
      return <div>Loading...</div>;
   }
   
@@ -56,7 +64,7 @@ const MenuFuncionario=()=> {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center ">
-             <h1 className='text-white pb-1 text-lg'>WayClient</h1>
+             <h1 className='text-white pb-1 text-3xl'>WayClient</h1>
             </div>
             <div className="hidden sm:ml-6 sm:block ">
               <div className="flex space-x-4 text-white mt-1">
