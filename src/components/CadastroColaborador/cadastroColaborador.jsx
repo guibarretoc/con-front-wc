@@ -79,18 +79,18 @@ const cadastroColaborador = () => {
                     <div className="flex">
                         <div className="flex flex-col w-[45%] mt-5 mb-2">
                             <label className="text-gray-600 text-xl">Nome Completo</label>
-                            <input type="text" id="input-nome" className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
+                            <input type="text" id="input-nome" value={nome} onChange={handleNomeChange} className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
                             <label className="text-gray-600 text-xl">E-mail</label>
-                            <input type="text" id="input-email" className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
+                            <input type="text" id="input-email" value={email} onChange={handleEmailChange} className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
                             <label className="text-gray-600 text-xl">Senha de Acesso</label>
-                            <input type="password" id="input-senha" className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
+                            <input type="password" id="input-senha" value={senha} onChange={handleSenhaChange} className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
                             <label className="text-gray-600 text-xl">Confirme a senha</label>
-                            <input type="password" id="input-senha-repetida" className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
+                            <input type="password" id="input-senha-repetida" value={senhaRepetida} onChange={handleSenhaRepetidaChange} className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
                         </div>
 
                         <div className="flex flex-col w-[45%] mt-5 mb-2 ml-7">
                             <label className="text-gray-600 text-xl">Departamento</label>
-                            <input type="text" id="input-departamento" list="departamento" className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
+                            <input type="text" id="input-departamento" list="departamento" value={departamento} onChange={handleDepartamentoChange} className="pl-2 text-gray-600 h-[6vh] text-lg rounded-full border border-green-700 mb-4 outline-none" />
                             <datalist id="departamento">
                                 <option value="Financeiro"></option>
                                 <option value="Design"></option>
