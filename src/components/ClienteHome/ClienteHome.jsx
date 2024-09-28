@@ -1,5 +1,5 @@
-import { CentralHeader } from "../Cliente/CentralHeader"
-import {CentralFooter} from "../Cliente/CentralFooter"
+import CentralHeader from "../Cliente/CentralHeader"
+import CentralFooter from "../Cliente/CentralFooter"
 
 const ClienteHome = () => {
     return (
@@ -38,9 +38,9 @@ const ClienteHome = () => {
 
                 <li className="font-lexend list-decimal text-slate-700 text-2xl mt-12 ml-36">Precisa de ajuda? Entre em contato conosco
                     <ol>
-                        <li className="font-lexend list-disc text-slate-700 text-lg font-light mt-4 mb-8">Se tiver alguma dúvida ou precisar de assistência,
+                        <li className="font-lexend list-disc text-slate-700 text-lg font-light mt-4 mb-32">Se tiver alguma dúvida ou precisar de assistência,
                             nossa equipe está sempre disponível para ajudar.
-                            Para entrar em <br />contato conosco <a href="#" className="text-green-500 ">clique aqui</a>.</li>
+                            Para entrar em <br />contato conosco <a href="#" className="text-green-500 hover:text-green-400">clique aqui</a>.</li>
                     </ol>
                 </li>
 
@@ -52,3 +52,5 @@ const ClienteHome = () => {
 
     )
 }
+
+export default ClienteHome;

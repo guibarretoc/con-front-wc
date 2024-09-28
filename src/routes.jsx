@@ -13,7 +13,7 @@ import HomeAdmPage from './pages/HomeAdm';
 import CreateTicket from './pages/CreateTicket';
 import PerguntasFrequentes from './pages/PerguntasFrequentes';
 import HomeAdm from './components/HomeAdm/HomeAdm';
-
+import ClienteHome from './pages/HomeCliente'
 
 function Main() {
 
@@ -87,6 +87,14 @@ function Main() {
             <PerguntasFrequentes/>
           </ProtectedRoute>
         
+        }
+        />
+        <Route
+        path="/clienteHome"
+        element={
+          <ProtectedRoute allowedTypes={['CUSTOMER']}>
+            <ClienteHome/>
+          </ProtectedRoute>
         }
         />
       </Routes>
