@@ -1,10 +1,10 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
-import getEmployeeData from '../../services/employee/getEmployeeData';
+import getAdminData from '../../services/admin/getAdminData';
 import profilepic from "../../assets/funcionario/perfil.png";
 
-const MenuFuncionario=()=> {
+const MenuAdm=()=> {
   const navigation = [
     { name: 'Tickets', href: '#', current: true },
     { name: 'Mensagens', href: '#', current: false },
@@ -12,7 +12,7 @@ const MenuFuncionario=()=> {
   ]
   const [username, setUsername] = useState("")
   const [loading, setLoading] = useState(true)
-  const getEmployeeInfo = async() => {
+  const getAdmInfo = async() => {
     const userId = sessionStorage.getItem("userId")
     try {
       if (!userId) {
@@ -20,7 +20,7 @@ const MenuFuncionario=()=> {
         return;
       }
 
-        let name = await getEmployeeData(sessionStorage.getItem("userId"))
+        let name = await getAdminData(sessionStorage.getItem("userId"))
         if (name) {
             sessionStorage.setItem("username", name)
             setUsername(name);
@@ -33,7 +33,7 @@ const MenuFuncionario=()=> {
   };
   
   useEffect(() => {
-    getEmployeeInfo();
+    getAdmInfo();
   }, []);
   
   const handleLogoutClick = () => {
@@ -160,4 +160,4 @@ const MenuFuncionario=()=> {
 }
 
 
-export default MenuFuncionario;
+export default MenuAdm;

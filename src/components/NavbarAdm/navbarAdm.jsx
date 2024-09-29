@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../NavbarAdm/navbarAdm.css"
-import fotoPerfil from "../../assets/Login/perfil.png"
 import { useNavigate } from "react-router-dom";
 import getAdminData from './../../services/admin/getAdminData';
-import AdminHome from './../../pages/AdminHome';
 import "../../assets/Navbar/lupa.png"
 import { Link } from "react-router-dom";
 

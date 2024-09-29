@@ -6,13 +6,14 @@ import FuncionarioHomePage from './pages/funcionarioHomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import CustomerHome from './pages/CustomerHome';
-import AdminHome from './pages/AdminHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
 import HomeAdmPage from './pages/HomeAdm';
 import CreateTicket from './pages/CreateTicket';
-
+import PerguntasFrequentes from './pages/PerguntasFrequentes';
+import HomeAdm from './components/HomeAdm/HomeAdm';
+import ClienteHome from './pages/HomeCliente'
 
 function Main() {
 
@@ -66,7 +67,7 @@ function Main() {
           path="/adminHome"
           element={
             <ProtectedRoute allowedTypes={['ADMIN']}>
-              <AdminHome />
+              <HomeAdm />
             </ProtectedRoute>
           }
         />
@@ -77,6 +78,23 @@ function Main() {
             <CreateTicket/>
           </ProtectedRoute>
         
+        }
+        />
+        <Route
+        path="/Perguntas-Frequentes"
+        element={
+          <ProtectedRoute allowedTypes={['CUSTOMER']}>
+            <PerguntasFrequentes/>
+          </ProtectedRoute>
+        
+        }
+        />
+        <Route
+        path="/clienteHome"
+        element={
+          <ProtectedRoute allowedTypes={['CUSTOMER']}>
+            <ClienteHome/>
+          </ProtectedRoute>
         }
         />
       </Routes>
