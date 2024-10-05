@@ -5,7 +5,7 @@ import getEmployeeData from '../../../services/employee/getEmployeeData';
 import profilepic from "../../../assets/funcionario/perfil.png";
 import { useNavigate } from 'react-router-dom';
 
-const MenuFuncionario = () => {
+const EmployeeNavbar = () => {
   const navigation = [
     { name: 'Tickets', href: '/department-tickets', current: true },
     { name: 'Mensagens', href: '', current: false },
@@ -162,4 +162,4 @@ const MenuFuncionario = () => {
 }
 
 
-export default MenuFuncionario;
+export default EmployeeNavbar;

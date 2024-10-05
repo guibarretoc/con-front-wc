@@ -1,12 +1,12 @@
 import React from 'react'
 import MainContent from '../components/DepartmentTicketsMainContent/MainContent';
 import DepartmentData from '../components/DepartmentTicketsDepartmentData/DepartmentData';
-import MenuFuncionario from '../components/AllNavbars/EmployeeNavbar/EmployeeNavbar';
+import EmployeeNavbar from '../components/AllNavbars/EmployeeNavbar/EmployeeNavbar';
 
 const DepartmentTickets = () => {
   return (
     <div>
-      <MenuFuncionario />
+      <EmployeeNavbar />
       <div className='flex flex-col lg:flex-row'>
         {/* src\components\DepartmentTicketsMainContent\mainContent.css */}
         <DepartmentData />

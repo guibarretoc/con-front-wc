@@ -82,7 +82,7 @@ function Main() {
 
         {/* Apenas clientes */}
         <Route
-          path="/customerHome"
+          path="/central-de-ajuda"
           element={
             <ProtectedRoute allowedTypes={['CUSTOMER']}>
               <CentralDeAjudaPage/>
