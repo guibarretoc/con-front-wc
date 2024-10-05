@@ -5,7 +5,6 @@ import App from './App';
 import FuncionarioHomePage from './pages/funcionarioHomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-import CustomerHome from './pages/CustomerHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
