@@ -1,10 +1,10 @@
-import CentralHeader from "../Cliente/CentralHeader"
+import CustomerNavbar from "../AllNavbars/CustomerNavbar/CustomerNavbar"
 import CentralFooter from "../Cliente/CentralFooter"
 
 const ClienteHome = () => {
     return (
         <div>
-            <CentralHeader />
+            <CustomerNavbar />
 
             <h1 className="font-lexend ml-32 mt-16 text-4xl text-slate-700">Bem-vindo!</h1>
 

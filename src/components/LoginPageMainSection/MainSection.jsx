@@ -50,7 +50,7 @@ const MainSection = () => {
     } else if (userType === "EMPLOYEE") {
       navigate("/funcionario");
     } else {
-      navigate("/customerHome");
+      navigate("/clienteHome");
     }
   }
 

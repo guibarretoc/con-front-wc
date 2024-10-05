@@ -1,14 +1,14 @@
 import React from 'react';
 import Footer from './Footer';
-import NavBar from './NavBar';
 import MinhasImg from '../../assets/images/MinhasImg.jpeg';
 import relogio from '../../assets/images/relogio.png';
 import email from '../../assets/images/email.png';
+import CustomerNavbar from '../AllNavbars/CustomerNavbar/CustomerNavbar';
 
 function CreateTicket() {
   return (
     <div>
-      <NavBar />
+      <CustomerNavbar />
       <div className="flex flex-col min-h-screen">
         <div className="flex-grow flex flex-col md:flex-row">
           <div className="flex w-full md:w-1/2 bg-gray-100 p-8 items-center justify-center">
