@@ -5,7 +5,7 @@ import signUpCustomer from "../../services/auth/signUpCustomer";
 import twitterLogo from "../../assets/Home/twitter.png";
 import instagramLogo from "../../assets/Home/instagram.png";
 import facebookLogo from "../../assets/Home/facebook.png";
-import AdminNavbar from "../AdminNavbar/AdminNavbar";
+import AdminNavbar from "../AllNavbars/AdminNavbar/AdminNavbar";
 
 const cadastroColaborador = () => {
 

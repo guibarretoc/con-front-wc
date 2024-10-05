@@ -1,7 +1,7 @@
 import React from 'react'
 import MainContent from '../components/DepartmentTicketsMainContent/MainContent';
 import DepartmentData from '../components/DepartmentTicketsDepartmentData/DepartmentData';
-import MenuFuncionario from '../components/FuncionarioHome/MenuFuncionario';
+import MenuFuncionario from '../components/AllNavbars/EmployeeNavbar/EmployeeNavbar';
 
 const DepartmentTickets = () => {
   return (

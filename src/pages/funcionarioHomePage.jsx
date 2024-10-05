@@ -1,7 +1,7 @@
 
 import MainFuncionario from "../components/FuncionarioHome/MainFuncionario";
 import FooterFuncionario from "../components/FuncionarioHome/FooterFuncionario";
-import MenuFuncionario from "../components/FuncionarioHome/MenuFuncionario";
+import MenuFuncionario from "../components/AllNavbars/EmployeeNavbar/EmployeeNavbar";
 import SideBarFuncionario from "../components/FuncionarioHome/SideBarFuncionario";
 
 const FuncionarioHomePage = ()=>{

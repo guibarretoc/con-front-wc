@@ -7,7 +7,7 @@ import atualizar from "../../assets/HomeAdm/atualizar.png"
 import departamento from "../../assets/HomeAdm/departamentos.png"
 import SidebarAdm from "./sidebarAdm"
 import Footer from "./footerAdm"
-import AdminNavbar from "../AdminNavbar/AdminNavbar";
+import AdminNavbar from "../AllNavbars/AdminNavbar/AdminNavbar";
 
 const HomeAdm = () => {
   return (

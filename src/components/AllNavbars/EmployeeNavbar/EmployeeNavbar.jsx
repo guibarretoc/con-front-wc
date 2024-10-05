@@ -1,15 +1,13 @@
-// IMPORTANTE!!!!!!
-// Essa deve ser a única navbar utilizada p/ todas as telas de Admin
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
-import profilepic from "../../assets/funcionario/perfil.png";
+import getEmployeeData from '../../../services/employee/getEmployeeData';
+import profilepic from "../../../assets/funcionario/perfil.png";
 import { useNavigate } from 'react-router-dom';
-import getAdminData from './../../services/admin/getAdminData';
 
-const AdminNavbar = () => {
+const MenuFuncionario = () => {
   const navigation = [
-    { name: 'Tickets', href: '/admin-tickets', current: true },
+    { name: 'Tickets', href: '/department-tickets', current: true },
     { name: 'Mensagens', href: '', current: false },
     { name: 'Histórico', href: '', current: false },
   ]
@@ -24,7 +22,7 @@ const AdminNavbar = () => {
         return;
       }
 
-        let name = await getAdminData(sessionStorage.getItem("userId"))
+        let name = await getEmployeeData(sessionStorage.getItem("userId"))
         if (name) {
             sessionStorage.setItem("username", name)
             setUsername(name);
@@ -67,7 +65,7 @@ const AdminNavbar = () => {
           </div>
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <div className="flex flex-shrink-0 items-center ">
-             <h1 onClick={() => navigate("/adminHome")} className='text-white pb-1 text-lg'>WayClient</h1>
+             <h1 onClick={() => navigate("/funcionario")} className='text-white pb-1 text-lg'>WayClient</h1>
             </div>
             <div className="hidden md:ml-6 md:block ">
               <div className="flex space-x-4 text-white mt-1">
@@ -164,4 +162,4 @@ const AdminNavbar = () => {
 }
 
 
-export default AdminNavbar;
+export default MenuFuncionario;
