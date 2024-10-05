@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Navbar from "../NavbarAdm2.jsx/MenuAdm"
 import { isEquals } from './../../utils/isEquals';
 import signUpEmployee from './../../services/auth/signUpEmployee';
 import signUpCustomer from "../../services/auth/signUpCustomer";
-
 import twitterLogo from "../../assets/Home/twitter.png";
 import instagramLogo from "../../assets/Home/instagram.png";
 import facebookLogo from "../../assets/Home/facebook.png";
+import AdminNavbar from "../AdminNavbar/AdminNavbar";
 
 const cadastroColaborador = () => {
 
@@ -210,7 +209,7 @@ const cadastroColaborador = () => {
 
     return (
         <div>
-            <Navbar />
+            <AdminNavbar />
 
             <section className="rounded-lg border border-gray-500 bg-white flex flex-col items-left mx-[10%] mt-[5%] p-[3%]">
                 <select

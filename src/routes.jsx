@@ -25,10 +25,14 @@ function Main() {
         <Route path="/" element={
           <Home />
         } />
-        <Route path="/teste" element={<CentralDeAjudaPage/>}/>
+
+        {/* Acesso livre */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/homeAdm" element={<HomeAdmPage />} />
+        {/* <Route path="/teste" element={<CentralDeAjudaPage/>}/> */}
+        {/* <Route path="/homeAdm" element={<HomeAdmPage />} /> */}
+
+        {/* Apenas admin */}
         <Route
           path="/cadastroColaborador"
           element={
@@ -37,6 +41,26 @@ function Main() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/adminHome"
+          element={
+            <ProtectedRoute allowedTypes={['ADMIN']}>
+              <HomeAdm />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin-tickets"
+          element={
+            <ProtectedRoute allowedTypes={['ADMIN']}>
+              <AdminTickets />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Apenas funcionarios */}
         <Route path="/app" element={<App />} />
         <Route
           path="/funcionario"
@@ -46,6 +70,7 @@ function Main() {
             </ProtectedRoute>
           }
         />
+
         <Route 
           path='department-tickets' 
           element={
@@ -54,6 +79,8 @@ function Main() {
             </ProtectedRoute>
           }
         />
+
+        {/* Apenas clientes */}
         <Route
           path="/customerHome"
           element={
@@ -62,22 +89,7 @@ function Main() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/adminHome"
-          element={
-            <ProtectedRoute allowedTypes={['ADMIN']}>
-              <HomeAdm />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin-tickets"
-          element={
-            <ProtectedRoute allowedTypes={['ADMIN']}>
-              <AdminTickets />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
         path="/Create-Ticket"
         element={
@@ -87,6 +99,7 @@ function Main() {
         
         }
         />
+
         <Route
         path="/Perguntas-Frequentes"
         element={
@@ -96,6 +109,7 @@ function Main() {
         
         }
         />
+
         <Route
         path="/clienteHome"
         element={
@@ -104,6 +118,7 @@ function Main() {
           </ProtectedRoute>
         }
         />
+
       </Routes>
     </Router>
   );
