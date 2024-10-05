@@ -12,6 +12,7 @@ import DepartmentTickets from './pages/DepartmentTickets';
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
 import HomeAdmPage from './pages/HomeAdm';
 import CreateTicket from './pages/CreateTicket';
+import AdminTickets from './pages/AdminTickets';
 
 
 function Main() {
@@ -44,8 +45,6 @@ function Main() {
             </ProtectedRoute>
           }
         />
-       
-        {/* TODO: turn into a private route for EMPLOYEE */}
         <Route 
           path='department-tickets' 
           element={
@@ -67,6 +66,14 @@ function Main() {
           element={
             <ProtectedRoute allowedTypes={['ADMIN']}>
               <AdminHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin-tickets"
+          element={
+            <ProtectedRoute allowedTypes={['ADMIN']}>
+              <AdminTickets />
             </ProtectedRoute>
           }
         />

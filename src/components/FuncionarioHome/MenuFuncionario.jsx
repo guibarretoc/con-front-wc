@@ -5,7 +5,7 @@ import getEmployeeData from '../../services/employee/getEmployeeData';
 import profilepic from "../../assets/funcionario/perfil.png";
 import { useNavigate } from 'react-router-dom';
 
-const MenuFuncionario=()=> {
+const MenuFuncionario = () => {
   const navigation = [
     { name: 'Tickets', href: '/department-tickets', current: true },
     { name: 'Mensagens', href: '', current: false },
@@ -57,7 +57,7 @@ const MenuFuncionario=()=> {
           </div>
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <div className="flex flex-shrink-0 items-center ">
-             <h1 className='text-white pb-1 text-lg'>WayClient</h1>
+             <h1 onClick={() => navigate("/funcionario")} className='text-white pb-1 text-lg'>WayClient</h1>
             </div>
             <div className="hidden md:ml-6 md:block ">
               <div className="flex space-x-4 text-white mt-1">
