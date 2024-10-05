@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "../NavbarAdm2.jsx/MenuAdm"
-//import Navbar from "../NavbarAdm/navbarAdm";
 import "tailwindcss/tailwind.css";
 import cadastro from "../../assets/HomeAdm/cadastro.png"
 import ticket from "../../assets/HomeAdm/tickets.png"
@@ -9,12 +7,13 @@ import atualizar from "../../assets/HomeAdm/atualizar.png"
 import departamento from "../../assets/HomeAdm/departamentos.png"
 import SidebarAdm from "./sidebarAdm"
 import Footer from "./footerAdm"
+import AdminNavbar from "../AllNavbars/AdminNavbar/AdminNavbar";
 
 const HomeAdm = () => {
   return (
     <div className="homeAdm-container min-h-screen flex flex-col bg-[#D9D9D9]">
       <section className="navbar fixed top-0 left-0 w-full z-20">
-        <Navbar />
+        <AdminNavbar />
       </section>
 
       <section className="flex-grow mt-16 md:mt-32 px-4 md:px-36 ">

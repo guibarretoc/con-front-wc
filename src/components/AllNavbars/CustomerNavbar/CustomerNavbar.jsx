@@ -2,10 +2,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
 
-import getCustomerData from '../../services/customer/getCustomerData';
-import profilepic from "../../assets/funcionario/perfil.png";
+import getCustomerData from '../../../services/customer/getCustomerData';
+import profilepic from "../../../assets/funcionario/perfil.png";
 
-const NavBar=()=> {
+const CustomerNavbar=()=> {
   const navigation = [
     { name: 'Meus Tickets', href: '#', current: true },
     { name: 'Central de Ajuda', href: '#', current: false },
@@ -153,4 +153,4 @@ const NavBar=()=> {
 }
 
 
-export default NavBar;
+export default CustomerNavbar;

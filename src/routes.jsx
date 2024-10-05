@@ -5,7 +5,6 @@ import App from './App';
 import FuncionarioHomePage from './pages/funcionarioHomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-import CustomerHome from './pages/CustomerHome';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import DepartmentTickets from './pages/DepartmentTickets';
 import CentralDeAjudaPage from './pages/CentralDeAjudaPage'
@@ -14,6 +13,8 @@ import CreateTicket from './pages/CreateTicket';
 import PerguntasFrequentes from './pages/PerguntasFrequentes';
 import HomeAdm from './components/HomeAdm/HomeAdm';
 import ClienteHome from './pages/HomeCliente'
+import AdminTickets from './pages/AdminTickets';
+
 
 function Main() {
 
@@ -24,10 +25,14 @@ function Main() {
         <Route path="/" element={
           <Home />
         } />
-        <Route path="/teste" element={<CentralDeAjudaPage/>}/>
+
+        {/* Acesso livre */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/homeAdm" element={<HomeAdmPage />} />
+        {/* <Route path="/teste" element={<CentralDeAjudaPage/>}/> */}
+        {/* <Route path="/homeAdm" element={<HomeAdmPage />} /> */}
+
+        {/* Apenas admin */}
         <Route
           path="/cadastroColaborador"
           element={
@@ -36,6 +41,26 @@ function Main() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/adminHome"
+          element={
+            <ProtectedRoute allowedTypes={['ADMIN']}>
+              <HomeAdm />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin-tickets"
+          element={
+            <ProtectedRoute allowedTypes={['ADMIN']}>
+              <AdminTickets />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Apenas funcionarios */}
         <Route path="/app" element={<App />} />
         <Route
           path="/funcionario"
@@ -45,8 +70,7 @@ function Main() {
             </ProtectedRoute>
           }
         />
-       
-        {/* TODO: turn into a private route for EMPLOYEE */}
+
         <Route 
           path='department-tickets' 
           element={
@@ -55,22 +79,17 @@ function Main() {
             </ProtectedRoute>
           }
         />
+
+        {/* Apenas clientes */}
         <Route
-          path="/customerHome"
+          path="/central-de-ajuda"
           element={
             <ProtectedRoute allowedTypes={['CUSTOMER']}>
               <CentralDeAjudaPage/>
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/adminHome"
-          element={
-            <ProtectedRoute allowedTypes={['ADMIN']}>
-              <HomeAdm />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
         path="/Create-Ticket"
         element={
@@ -80,6 +99,7 @@ function Main() {
         
         }
         />
+
         <Route
         path="/Perguntas-Frequentes"
         element={
@@ -89,6 +109,7 @@ function Main() {
         
         }
         />
+
         <Route
         path="/clienteHome"
         element={
@@ -97,6 +118,7 @@ function Main() {
           </ProtectedRoute>
         }
         />
+
       </Routes>
     </Router>
   );
