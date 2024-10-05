@@ -79,13 +79,8 @@ const MainSection = () => {
             className="w-full px-3 py-3 text-lg text-gray-600 border border-green-600 rounded-lg focus:outline-none focus:ring focus:ring-green-300"
           />
         </div>
-        <div className="flex items-center justify-between mb-6">
-  <p className="text-gray-700 text-sm">Esqueceu a senha?</p>
-  <a href="/forgot-password" className="text-green-600 text-sm hover:underline">Recuperar senha</a>
-</div>
-
+    
         <div className="w-full max-w-sm mb-4 flex justify-center">
-          
           <button 
             onClick={handleLoginClick} 
             className="bg-green-600 text-white py-3 px-6 rounded-full w-full text-lg hover:bg-green-700 transition-all"
