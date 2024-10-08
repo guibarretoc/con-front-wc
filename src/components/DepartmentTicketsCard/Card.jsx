@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getCustomerByTicketId from './../../services/ticket/getCustomerByTicketId';
-import Modal from './../DepartmentTicketsModal/Modal';
+import Modal from '../EmployeeTicketsModal/Modal';
 import Draggable from '../Draggable/Draggable';
 
 const Card = ({ ticket }) => {
