@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import getAllTickets from './../../services/ticket/getAllTickets';
 import getDepartments from '../../services/department/getDepartments';
+import Modal from '../AdminTicketsModal/Modal';
+import putTicketDepartment from '../../services/ticket/putTicketDepartment';
+import putTicketEmployee from '../../services/ticket/putTicketEmployee';
 
 const MainContent = () => {
   const [tickets, setTickets] = useState([]);
   const [departments, setDepartments] = useState([]);
   const [selectedDepartment, setSelectedDepartment] = useState('Todos');
   const [selectedStatus, setSelectedStatus] = useState('Todos');
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para o campo de busca
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [ticketModal, setTicketModal] = useState({});
 
   useEffect(() => {
     const fetchAllTickets = async () => {
@@ -34,6 +39,15 @@ const MainContent = () => {
 
   const handleSearchInputChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleRowClick = (ticket) => {
+    setTicketModal(ticket);
+    setShowModal(true)
+  }
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   // filtrando tickets por departamento, status e input de busca
@@ -96,10 +110,10 @@ const MainContent = () => {
             Todos
           </div>
           <div 
-            className={`cursor-pointer ${selectedStatus === 'Aberto' ? 'font-bold border-b-2 border-black' : ''}`} 
-            onClick={() => handleStatusClick('Aberto')}
+            className={`cursor-pointer ${selectedStatus === 'Pendente' ? 'font-bold border-b-2 border-black' : ''}`} 
+            onClick={() => handleStatusClick('Pendente')}
           >
-            Aberto
+            Pendente
           </div>
           <div 
             className={`cursor-pointer ${selectedStatus === 'Em atendimento' ? 'font-bold border-b-2 border-black' : ''}`} 
@@ -143,15 +157,20 @@ const MainContent = () => {
               <th scope="col" className="px-6 py-3"> Data de abertura </th>
               <th scope="col" className="px-6 py-3"> Título </th>
               <th scope="col" className="px-6 py-3"> Cliente </th>
-              <th scope="col" className="px-6 py-3"> Serviço </th>
-              <th scope="col" className="px-6 py-3"> Produto </th>
+              <th scope="col" className="px-6 py-3"> Funcionario </th>
+              {/* <th scope="col" className="px-6 py-3"> Serviço </th>
+              <th scope="col" className="px-6 py-3"> Produto </th> */}
               <th scope="col" className="px-6 py-3"> Status </th>
               <th scope="col" className="px-6 py-3"> Departamento </th>
             </tr>
           </thead>
           <tbody>
             {filteredTickets.map((ticket) => (
-              <tr key={ticket.id} className="hover:bg-gray-50 dark:hover:bg-gray-50 text-gray-600">
+              <tr 
+                className="hover:bg-gray-50 dark:hover:bg-gray-50 text-gray-600"
+                onClick={() => handleRowClick(ticket)}
+                key={ticket.id}
+              >
                 <th scope="row" className="px-6 py-4 whitespace-nowrap max-w-32 text-ellipsis overflow-hidden">
                   {ticket.id}
                 </th>
@@ -164,11 +183,14 @@ const MainContent = () => {
                 <td className="px-6 py-4">
                   {ticket.customerName}
                 </td>
-                <td className="px-6 py-4">
+                {/* <td className="px-6 py-4">
                   {ticket.service == null ? "Nenhum" : ticket.service.name}
                 </td>
                 <td className="px-6 py-4">
                   {ticket.product == null ? "Nenhum" : ticket.product.name}
+                </td> */}
+                <td className="px-6 py-4">
+                  {ticket.employeeName}
                 </td>
                 <td className="px-6 py-4">
                   {ticket.status}
@@ -182,6 +204,15 @@ const MainContent = () => {
         </table>
       </div>
       <div className="pb-16"></div>
+      <Modal 
+        isOpen={showModal}
+        onClose={closeModal}
+        ticket={ticketModal}
+        departments={departments}
+        employees={departments}
+        onAssignDepartment={putTicketDepartment}
+        onAssignEmployee={putTicketEmployee}
+      />
     </div>
   );
 }
