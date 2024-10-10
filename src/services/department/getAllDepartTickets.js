@@ -14,7 +14,6 @@ const getAllDepartTickets = async (department_id) => {
         Authorization: `Bearer ${token}`
       }
     });
-    //console.log("Requisição feita para o departamento:", department_id);
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar os tickets:", error);

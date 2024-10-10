@@ -14,8 +14,7 @@ const SidebarAdm = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const departmentsData = await getAllDepartments();
-        console.log("Dados dos departamentos:", departmentsData);
+        const departmentsData = await getAllDepartments()
         
         if (departmentsData && Array.isArray(departmentsData)) {
           setDepartments(departmentsData)
@@ -75,8 +74,8 @@ const SidebarAdm = () => {
                   <div className="linha-verde border border-green-500 opacity-40 mb-4"></div>
                   <h3 className="text-xs text-gray-600">Membros do departamento</h3>
                   <ul className="space-y-2 mt-2 text-sm">
-                    {dept.Membrosdep && dept.members.length > 0 ? (
-                      dept.members.map((member) => (
+                    {dept.employees && dept.employees.length > 0 ? (
+                      dept.employees.map((member) => (
                         <li key={member.id} className="flex items-center space-x-2">
                           <img src={perfil} alt="perfil" className="w-6 h-6 rounded-full bg-gray-300" />
                           <span>{member.name}</span>
