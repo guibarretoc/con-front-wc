@@ -9,11 +9,6 @@ import createTicket from '../../services/ticket/postTicketData';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const token = sessionStorage.getItem("token");
 
-import createTicket from '../../services/ticket/postTicketData';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const token = sessionStorage.getItem("token");
-
 function CreateTicket() {
   const [departments, setDepartments] = useState([]);
   const [departmentId, setDepartmentId] = useState('');
@@ -23,7 +18,7 @@ function CreateTicket() {
   function getCurrentDate() {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0
+    const month = String(today.getMonth() + 1).padStart(2, '0');
     const year = today.getFullYear();
   
     return `${day}/${month}/${year}`;
