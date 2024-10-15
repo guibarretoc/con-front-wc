@@ -18,7 +18,7 @@ function CreateTicket() {
   function getCurrentDate() {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0'); 
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // +1 porque os meses começam em 0
     const year = today.getFullYear();
   
     return `${day}/${month}/${year}`;
@@ -40,7 +40,7 @@ function CreateTicket() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
+    // Validações
     if (!departmentId || !title || !description) {
       alert('Por favor, preencha todos os campos.');
       return;
@@ -58,11 +58,12 @@ function CreateTicket() {
       
     };
 
-    
+    // Chama a função para criar o ticket
     const responseStatus = await createTicket(ticketData);
 
     if (responseStatus === '201') {
       alert('Ticket enviado com sucesso!');
+      // Limpar campos após envio
       setDepartmentId('');
       setTitle('');
       setDescription('');
