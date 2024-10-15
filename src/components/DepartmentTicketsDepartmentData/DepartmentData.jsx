@@ -45,7 +45,7 @@ const DepartmentData = () => {
   }
 
   return (
-    <div className="flex flex-col w-screen
+    <div className="flex flex-col w-full
       lg:w-fit lg:h-auto lg:border-r lg:border-[#379E53]
       "
     >

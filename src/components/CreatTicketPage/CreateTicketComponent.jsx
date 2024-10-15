@@ -4,6 +4,7 @@ import MinhasImg from '../../assets/images/MinhasImg.jpeg';
 import relogio from '../../assets/images/relogio.png';
 import email from '../../assets/images/email.png';
 import CustomerNavbar from '../AllNavbars/CustomerNavbar/CustomerNavbar';
+
 import createTicket from '../../services/ticket/postTicketData';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
