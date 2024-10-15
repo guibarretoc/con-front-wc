@@ -86,7 +86,7 @@ const EmployeeNavbar = () => {
               </div>
             </div>   
 
-              <input type='search' className='hidden md:block md:w-full text-greene px-2 py-1 rounded-3xl m-2 outline-0 focus:border-greene  focus:ring-1 focus:ring-greene  sm:text-sm sm:leading-6 shadow-md shadow-greene' placeholder=" search" />     
+              <input type='search' className='hidden md:block md:w-full text-greene px-2 py-1 rounded-3xl m-2 outline-0 focus:border-greene  focus:ring-1 focus:ring-greene  sm:text-sm sm:leading-6 shadow-md shadow-greene' placeholder=" pesquisar" />     
 
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-0 sm:pr-0">
