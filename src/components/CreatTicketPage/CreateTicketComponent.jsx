@@ -9,11 +9,6 @@ import createTicket from '../../services/ticket/postTicketData';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const token = sessionStorage.getItem("token");
 
-import createTicket from '../../services/ticket/postTicketData';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const token = sessionStorage.getItem("token");
-
 function CreateTicket() {
   const [departments, setDepartments] = useState([]);
   const [departmentId, setDepartmentId] = useState('');
