@@ -75,7 +75,7 @@ const cadastroColaborador = () => {
 
             if (response == 200) {
                 resetEmployeeFormFields();
-                alert("Colaborador cadastro com sucesso");
+                alert("Colaborador cadastrado com sucesso");
             } else {
                 alert("Falha ao cadastrar colaborador");
             }
@@ -91,7 +91,7 @@ const cadastroColaborador = () => {
     
                 if (response == 200) {
                     resetCustomerFormFields();
-                    alert("Cliente cadastro com sucesso");
+                    alert("Cliente cadastrado com sucesso");
                 } else {
                     alert("Falha ao cadastrar cliente");
                 }
