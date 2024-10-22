@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isEquals } from './../../utils/isEquals';
 import signUpCustomer from '../../services/auth/signUpCustomer';
+import Loading from '../Loading/Loading';
 
 const MainSection = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const MainSection = () => {
   const [senha, setSenha] = useState('');
   const [confirmeSenha, setConfirmeSenha] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleNomeCompletoChange = (event) => {
     setNomeCompleto(event.target.value);
@@ -34,6 +36,9 @@ const MainSection = () => {
 
   const handleCadastrarClick = async () => {
     if (isEquals(senha, confirmeSenha)) {
+      setIsLoading(true);
+
+      try {
       let data = getFormData();
       let response = await signUpCustomer(data);
       sessionStorage.setItem("debug-response", response);
@@ -41,7 +46,12 @@ const MainSection = () => {
       if (response === '200') {
         setIsModalOpen(true);
       } else {
-        alert("Falha ao cadastrar colaborador");
+        alert("Falha ao cadastrar");
+      }
+      } catch (error) {
+        alert('Ocorreu um erro no cadastro');
+      } finally {
+        setIsLoading(false)
       }
 
     } else {
@@ -77,6 +87,12 @@ const MainSection = () => {
           </h2>
         </div>
       </section>
+
+      {
+      isLoading 
+      ?
+      <Loading />
+      :   
       <section id="su-col-two" className="flex flex-col items-center justify-center w-full md:w-1/2 bg-white rounded-lg shadow-[0_10px_60px_-20px_rgba(0,0,0,0.3)] p-4 max-w-xl">
         <div className="text-2xl text-center mb-4 mt-2" id="su-col-two-main-title">
           Cadastre-se
@@ -151,6 +167,7 @@ const MainSection = () => {
           </button>
         </div>
       </section>
+      }
       {isModalOpen && (
         <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="modal bg-white p-8 rounded-lg shadow-lg text-center">
