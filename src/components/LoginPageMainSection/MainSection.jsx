@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profilePic from "../../assets/Login/perfil.png";
 import login from '../../services/auth/login';
+import Loading from '../Loading/Loading';
 
 const MainSection = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -17,6 +19,7 @@ const MainSection = () => {
   };
 
   const handleLoginClick = async () => {
+    setIsLoading(true);
     let data = {
       "email": email,
       "password": senha
@@ -37,6 +40,8 @@ const MainSection = () => {
       }
     } catch (error) {
       console.error("Erro ao fazer login:", error);
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -56,6 +61,11 @@ const MainSection = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-8 pb-8">
+      {
+        isLoading 
+        ?
+        <Loading />
+        :  
       <section className="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl flex flex-col items-center">
         <h1 className="text-2xl font-bold text-gray-700 mb-6">Bem vindo de volta!</h1>
         <div className="w-full flex justify-center mb-6">
@@ -92,6 +102,7 @@ const MainSection = () => {
           <a onClick={handleSignupClick} className="text-green-600 cursor-pointer ml-2 hover:underline">Cadastre-se</a>
         </p>
       </section>
+      }
     </div>
   );
 }

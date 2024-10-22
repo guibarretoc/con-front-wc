@@ -6,8 +6,10 @@ import twitterLogo from "../../assets/Home/twitter.png";
 import instagramLogo from "../../assets/Home/instagram.png";
 import facebookLogo from "../../assets/Home/facebook.png";
 import AdminNavbar from "../AllNavbars/AdminNavbar/AdminNavbar";
+import Loading from "../Loading/Loading";
 
 const cadastroColaborador = () => {
+    const [isLoading, setIsLoading] = useState(false);
 
     //Cadastro dos funcionários
     const [nomeColaborador, setNomeColaborador] = useState('');
@@ -69,34 +71,51 @@ const cadastroColaborador = () => {
     //Função para o botão de cadastro do funcionário
     const handleCadastroColaboradorClick = async () => {
         if (isEquals(senhaColaborador, senhaRepetidaColaborador)) {
-            let data = getFormData();
-
+          setIsLoading(true);
+    
+          let data = getFormData();
+    
+          try {
             let response = await signUpEmployee(data);
-
+            console.log(response)
+    
             if (response == 200) {
-                resetEmployeeFormFields();
-                alert("Colaborador cadastrado com sucesso");
+              resetEmployeeFormFields();
+              alert('Colaborador cadastrado com sucesso');
             } else {
-                alert("Falha ao cadastrar colaborador");
+              alert('Falha ao cadastrar colaborador');
             }
+          } catch (error) {
+            alert('Ocorreu um erro ao cadastrar o colaborador');
+          } finally {
+            setIsLoading(false);
+          }
         }
-    }
+      };
 
-        //Função para o botão de cadastro do cliente
-        const handleCadastroClienteClick = async () => {
-            if (isEquals(senhaCliente, senhaRepetidaCliente)) {
-                let data = getCustomerFormData();
+    //Função para o botão de cadastro do cliente
+    const handleCadastroClienteClick = async () => {
+        if (isEquals(senhaCliente, senhaRepetidaCliente)) {
+          setIsLoading(true);
     
-                let response = await signUpCustomer(data);
+          let data = getCustomerFormData();
     
-                if (response == 200) {
-                    resetCustomerFormFields();
-                    alert("Cliente cadastrado com sucesso");
-                } else {
-                    alert("Falha ao cadastrar cliente");
-                }
+          try {
+            let response = await signUpCustomer(data);
+    
+            if (response == 200) {
+              resetCustomerFormFields();
+              alert('Cliente cadastrado com sucesso');
+            } else {
+              alert('Falha ao cadastrar cliente');
             }
+          } catch (error) {
+            alert('Ocorreu um erro ao cadastrar o cliente');
+          } finally {
+            setIsLoading(false);
+          }
         }
+    };
 
     const getFormData = () => {
         return {
@@ -143,6 +162,10 @@ const cadastroColaborador = () => {
     const renderColaboradorForm = () => {
         return (
             <div>
+                {isLoading 
+                ? 
+                    <Loading />
+                : 
                 <section className="rounded-lg border border-gray-500 bg-white flex flex-col items-left mt-[5%] p-[4%]">
                     <h1 className="text-gray-600 text-4xl">Cadastro de Colaborador</h1>
 
@@ -169,9 +192,11 @@ const cadastroColaborador = () => {
                     </div>
 
                 </section>
-
+    }
                 <button onClick={handleCadastroColaboradorClick} className="rounded-full w-[23%] border-none bg-green-700 shadow-lg cursor-pointer text-white text-lg mt-4 ml-[77%] hover:shadow-xl active:shadow-md"
                 >Cadastrar colaborador</button>
+
+                
             </div>
         );
     };
@@ -179,6 +204,10 @@ const cadastroColaborador = () => {
     const renderClienteForm = () => {
         return (
             <div>
+                {isLoading 
+                ? 
+                    <Loading />
+                : 
                 <section className="rounded-lg border border-gray-500 bg-white flex flex-col items-left mt-[5%] p-[4%]">
                     <h1 className="text-gray-600 text-4xl">Cadastro de Cliente</h1>
 
@@ -200,7 +229,7 @@ const cadastroColaborador = () => {
                         </div>
                     </div>
                 </section>
-                
+                }
                     <button onClick={handleCadastroClienteClick} className="rounded-full w-[18%] border-none bg-green-700 shadow-lg cursor-pointer text-white text-lg mt-4 ml-[82%] p-3 hover:shadow-xl active:shadow-md"
                     >Cadastrar cliente</button>
             </div>
