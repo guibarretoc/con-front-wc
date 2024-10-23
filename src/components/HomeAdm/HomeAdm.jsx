@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../NavbarAdm2.jsx/MenuAdm"
+import { Link } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 import cadastro from "../../assets/HomeAdm/cadastro.png"
 import ticket from "../../assets/HomeAdm/tickets.png"
@@ -8,12 +9,13 @@ import atualizar from "../../assets/HomeAdm/atualizar.png"
 import departamento from "../../assets/HomeAdm/departamentos.png"
 import SidebarAdm from "./sidebarAdm"
 import Footer from "./footerAdm"
+import AdminNavbar from "../AllNavbars/AdminNavbar/AdminNavbar";
 
 const HomeAdm = () => {
   return (
     <div className="homeAdm-container min-h-screen flex flex-col bg-[#D9D9D9]">
       <section className="navbar fixed top-0 left-0 w-full z-20">
-        <Navbar />
+        <AdminNavbar />
       </section>
 
       <section className="flex-grow mt-16 md:mt-32 px-4 md:px-36 ">
@@ -28,15 +30,18 @@ const HomeAdm = () => {
 
           <div className="tabela flex flex-row md:flex-row md:gap-x-24 justify-center">
             <ul className="mb-8 md:mb-0 space-y-8 text-center text-[#379E53]">
+
+            <Link to="/cadastroColaborador" className="link text-inherit hover:text-#379E53">
               <li className="font-bold bg-[#F4F4F4] p-4 flex items-center justify-between text-lg md:text-2xl shadow-md rounded-xl 
-              hover:bg-slate-300 ">
-                Cadastrar cliente
+              hover:bg-slate-300 ">Cadastrar cliente
                 <img
                   className="object-cover object-center h-3 md:h-3 ml-2"
                   src={cadastro}
                   alt="sinal de soma"
                 />
               </li>
+              </Link>
+
               <li className="font-bold bg-[#F4F4F4] p-4 flex items-center justify-center text-lg md:text-2xl shadow-md rounded-xl *: hover:bg-slate-300">
                 Atualizar dados
                 <img
@@ -55,6 +60,8 @@ const HomeAdm = () => {
               </li>
             </ul>
             <ul className="space-y-8 text-center text-[#379E53]">
+              
+            <Link to="/cadastroColaborador" className="link text-inherit hover:text-#379E53">
               <li className="font-bold bg-[#F4F4F4] p-4 flex items-center justify-between text-lg md:text-2xl shadow-md rounded-xl  hover:bg-slate-300">
                 Cadastrar Funcionário
                 <img
@@ -63,6 +70,8 @@ const HomeAdm = () => {
                   alt="sinal de soma"
                 />
               </li>
+              </Link>
+              
               <li className="font-bold bg-[#F4F4F4] p-4 flex items-center justify-center text-lg md:text-2xl shadow-md rounded-xl  hover:bg-slate-300">
                 Tickets
                 <img
@@ -71,6 +80,7 @@ const HomeAdm = () => {
                   alt="ícone de ticket"
                 />
               </li>
+              
               <li className="font-bold bg-[#F4F4F4] p-4 flex items-center justify-center text-lg md:text-2xl shadow-md rounded-xl  hover:bg-slate-300">
                 Histórico
                 <img

@@ -2,17 +2,22 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
 
-import getCustomerData from '../../services/customer/getCustomerData';
-import profilepic from "../../assets/funcionario/perfil.png";
+import getCustomerData from '../../../services/customer/getCustomerData';
+import profilepic from "../../../assets/funcionario/perfil.png";
+import Loading from '../../Loading/Loading';
+import { useNavigate } from 'react-router-dom';
 
-const NavBar=()=> {
+const CustomerNavbar=()=> {
   const navigation = [
-    { name: 'Meus Tickets', href: '#', current: true },
-    { name: 'Central de Ajuda', href: '#', current: false },
+    { name: 'Meus Tickets', href: '/Create-Ticket', current: true },
+    { name: 'Central de Ajuda', href: '/central-de-ajuda', current: false },
     { name: 'FAQ', href: '/Perguntas-Frequentes', current: false },
     
   ]
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
+
+
   const getCustomerInfo = async()=>{
     try{
       let name = await getCustomerData(sessionStorage.getItem("userId"))
@@ -25,7 +30,12 @@ const NavBar=()=> {
     }
   }
 
+  const getUsername = () => {
+    setUsername(sessionStorage.getItem("username"))
+  }
+
   useEffect(() => {
+    getUsername();
     getCustomerInfo();
   }, []);
   
@@ -34,14 +44,12 @@ const NavBar=()=> {
     sessionStorage.clear()
   }
   
-  
-  
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
 
   if (!username) {
-    return <div>Loading...</div>;
+    <Loading />
   }
   
   return (
@@ -57,19 +65,20 @@ const NavBar=()=> {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center ">
-             <h1 className='text-white pb-1 text-lg'>WayClient</h1>
+             <h1 className='text-white pb-1 text-lg cursor-pointer' onClick={() => navigate("/clienteHome")}>WayClient</h1>
             </div>
             <div className="hidden sm:ml-6 sm:block ">
               <div className="flex space-x-4 text-white mt-5">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
-                    href={item.href}
+                    // href={item.href}
+                    onClick={() => navigate(item.href)}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'hover:bg-greene hover:bg-opacity-20 text-white hover:text-white' : 
                       ' hover:bg-greene hover:bg-opacity-20 hover:text-white text-white',
-                      ' rounded-md px-3 py-2 text-sm font-bold text-nowrap',
+                      ' rounded-md px-3 py-2 text-sm font-bold text-nowrap cursor-pointer',
                     )}
                   >
                     {item.name}
@@ -78,7 +87,7 @@ const NavBar=()=> {
               </div>
             </div>
            
-              <input type='search' className='hidden sm:block md:w-full h-10 m-5 text-greene px-2 py-1 rounded-3xl outline-0 focus:border-greene  focus:ring-1 focus:ring-greene  sm:text-sm sm:leading-6 shadow-md shadow-greene' placeholder=" search" />
+              <input type='search' className='hidden sm:block md:w-full h-10 m-5 text-greene px-2 py-1 rounded-3xl outline-0 focus:border-greene  focus:ring-1 focus:ring-greene  sm:text-sm sm:leading-6 shadow-md shadow-greene' placeholder=" pesquisar" />
                 
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-0 sm:pr-0">
@@ -103,7 +112,7 @@ const NavBar=()=> {
                     className="h-10 w-10 rounded-full"
                   />  
                 </MenuButton>
-                <p className='text-white hidden sm:block'>{username}</p>
+                <p className='text-white hidden sm:block'>{sessionStorage.getItem("username")}</p>
               </div>
               <MenuItems
                 transition
@@ -153,4 +162,4 @@ const NavBar=()=> {
 }
 
 
-export default NavBar;
+export default CustomerNavbar;

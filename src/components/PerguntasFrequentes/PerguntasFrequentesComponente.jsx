@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Footer from './Footer';
-import NavBar from './NavBar';
 import { PlusIcon } from '@heroicons/react/24/outline';
+import CustomerNavbar from '../AllNavbars/CustomerNavbar/CustomerNavbar';
+import Loading from '../Loading/Loading';
 
 function PerguntasFrequentes() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -37,9 +39,13 @@ function PerguntasFrequentes() {
     }
   ];
 
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <div>
-      <NavBar />
+      <CustomerNavbar />
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-gray-100">
         <h1 className="font-bold text-gray-700 text-3xl sm:text-4xl lg:text-5xl mb-10 text-center">
           Perguntas Frequentes

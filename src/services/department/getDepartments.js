@@ -2,18 +2,19 @@ import axios from 'axios';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const signUpEmployee = async(data) => {
+const getDepartments = async() => {
+  // retorna todos os departamentos
   try {
     const token = sessionStorage.getItem("token");
-    const response = await axios.post(`${API_BASE_URL}/auth/signup_employee`, data, {
+    const response = await axios.get(`${API_BASE_URL}/department`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
-    })
-    return JSON.stringify(response.status);
+    });
+    return response.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-export default signUpEmployee;
+export default getDepartments;
