@@ -10,6 +10,7 @@ const SidebarAdm = () => {
     setIsOpen(!isOpen)
   }
 
+  
   return (
     <section className="sidebar bg-[#F9F6EE] flex flex-col p-4 shadow-md  fixed bottom-0 left-0 z-10 w-full md:w-1/3 lg:w-1/4 h-auto md:h-screen">
       <div className="flex flex-col space-y-4 mt-8 md:mt-36">
@@ -23,16 +24,18 @@ const SidebarAdm = () => {
           />
         </div>
         {isOpen && (
-          <div className="text-sm text-gray-600">
+          <div className="text-lg">
+            <div className="text-sm text-gray-500">
             <p>Situação dos tickets</p>
-            <p>Abertos: </p>
+            </div>
+            <p>Abertos:  </p>
             <p>Em atendimento: </p>
             <p>Fechados: </p>
           </div>
         )}
         {isOpen && (
           <div>
-            <h3 className="font-bold text-sm">Membros do departamento</h3>
+            <p className=" text-base text-gray-500">Membros do departamento</p>
             <ul className="space-y-2 mt-2">
               <li className="flex items-center space-x-2">
                 <span className="w-6 h-6 bg-red-500 text-white rounded-full text-center">
