@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../NavbarAdm2.jsx/MenuAdm"
 import { Link } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 import cadastro from "../../assets/HomeAdm/cadastro.png"
@@ -10,6 +9,7 @@ import departamento from "../../assets/HomeAdm/departamentos.png"
 import SidebarAdm from "./sidebarAdm"
 import Footer from "./footerAdm"
 import AdminNavbar from "../AllNavbars/AdminNavbar/AdminNavbar";
+
 
 const HomeAdm = () => {
   return (
