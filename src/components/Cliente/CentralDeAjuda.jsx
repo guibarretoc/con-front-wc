@@ -21,8 +21,12 @@ const CentralDeAjuda = () => {
     navigate('/Create-Ticket'); 
   };
 
+  const handleFAQButtonClick = () => {
+    navigate('/Perguntas-Frequentes'); // Redireciona para Perguntas Frequentes
+  };
+
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -42,6 +46,7 @@ const CentralDeAjuda = () => {
         <div className="flex flex-row m-4 mt-20 space-x-6">
           <div className="flex flex-col w-1/3 space-y-4">
             <button
+              onClick={handleFAQButtonClick} // Adiciona a função de redirecionamento
               className="border-greenh bg-transparent flex flex-col items-center justify-center h-32 w-full border-2 p-4 hover:border-greenh"
             >
               <img src={ask} alt="Perguntas Frequentes" className="h-12 w-12" />
