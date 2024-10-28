@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CustomerNavbar from '../AllNavBars/CustomerNavbar/CustomerNavbar';
 import Footer from './Footer';
-import getAllTickets from './../../services/ticket/getAllTickets';
 import fetchCustomerData from './../../services/customer/fetchCustomerData'; // Atualizando a importação
 import Loading from './../Loading/Loading';
 import perfilImg from './../../assets/login/perfil.png';
@@ -23,12 +22,13 @@ const ProfilePage = () => {
       }
 
       try {
-        const ticketData = await getAllTickets();
-        setTickets(ticketData);
+        // const ticketData = await getAllTickets();
+        // setTickets(ticketData);
 
         const data = await fetchCustomerData(userId); // Usando o novo serviço aqui
         if (data) {
           setCustomerData({ name: data.name, email: data.email, phone: data.phone });
+          setTickets(data.tickets)
         }
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
