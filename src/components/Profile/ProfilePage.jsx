@@ -1,103 +1,103 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import CustomerNavbar from '../AllNavBars/CustomerNavbar/CustomerNavbar';
 import Footer from './Footer';
 import getAllTickets from './../../services/ticket/getAllTickets';
-import getDepartments from '../../services/department/getDepartments';
+import fetchCustomerData from './../../services/customer/fetchCustomerData'; // Atualizando a importação
 import Loading from './../Loading/Loading';
-import perfilImg from './../../assets/login/perfil.png'; // Importando a imagem
+import perfilImg from './../../assets/login/perfil.png';
 
 const ProfilePage = () => {
   const [tickets, setTickets] = useState([]);
-  const [departments, setDepartments] = useState([]);
+  const [customerData, setCustomerData] = useState({ name: '', email: '', phone: '' });
   const [loading, setLoading] = useState(true);
 
-  const user = {
-    name: 'Maria Silva',
-    email: 'maria.silva@example.com',
-    phone: '(11) 91234-5678',
-    imageUrl: perfilImg, // Usando a imagem importada
-  };
+  const userImage = perfilImg; 
 
   useEffect(() => {
-    const fetchTicketsAndDepartments = async () => {
-      const ticketData = await getAllTickets();
-      setTickets(ticketData);
-      const departmentData = await getDepartments();
-      setDepartments(departmentData);
-      setLoading(false);
+    const fetchData = async () => {
+      const userId = sessionStorage.getItem("userId");
+      if (!userId) {
+        console.error("User ID not found");
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const ticketData = await getAllTickets();
+        setTickets(ticketData);
+
+        const data = await fetchCustomerData(userId); // Usando o novo serviço aqui
+        if (data) {
+          setCustomerData({ name: data.name, email: data.email, phone: data.phone });
+        }
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      } finally {
+        setLoading(false); // Garanta que o loading seja definido como false ao final
+      }
     };
 
-    fetchTicketsAndDepartments();
+    fetchData();
   }, []);
 
-  const filteredTickets = tickets.filter(ticket => {
-    return true; // Filtragem atual pode ser implementada se necessário
-  });
-
-  // Limita a exibição para os primeiros 10 tickets
-  const displayedTickets = filteredTickets.slice(0, 10);
-
-  // Função para obter a classe de cor do status
   const getStatusClass = (status) => {
     switch (status) {
       case 'Pendente':
-        return 'text-yellow-500'; 
+        return 'text-yellow-500';
       case 'Fechado':
-        return 'text-[#379E53]'; 
-      case 'Em impedimento': 
-        return 'text-red-500'; 
+        return 'text-[#379E53]';
+      case 'Em impedimento':
+        return 'text-red-500';
+      case 'Em atendimento':
+        return 'text-blue-500';
       default:
-        return 'text-gray-500'; 
+        return 'text-gray-500';
     }
   };
+
+  if (loading) {
+    return <Loading />; // Retorna o carregando enquanto os dados estão sendo buscados
+  }
 
   return (
     <div className="p-4">
       <CustomerNavbar />
-
       <div className="border border-gray-300 rounded-lg p-4 mb-4 max-w-7xl mx-auto mt-6">
         <h1 className="text-2xl font-bold mb-4">Perfil</h1>
         <div className="flex items-center">
-          <img src={user.imageUrl} alt="Perfil" className="w-24 h-24 rounded-full mr-4" />
+          <img src={userImage} alt="Perfil" className="w-24 h-24 rounded-full mr-4" />
           <div>
-            <h2 className="text-xl font-semibold">{user.name}</h2>
-            <p className="text-gray-600">{user.email}</p>
-            <p className="text-gray-600">{user.phone}</p>
+            <h2 className="text-xl font-semibold">{customerData.name || 'Nome não encontrado'}</h2>
+            <p className="text-gray-600">{customerData.email || 'Email não encontrado'}</p>
+            <p className="text-gray-600">{customerData.phone || 'Telefone não encontrado'}</p>
           </div>
         </div>
       </div>
 
       <div className="border border-gray-300 rounded-lg p-4 max-w-7xl mx-auto">
         <h3 className="text-lg font-semibold mb-2">MEUS TICKETS</h3>
-
-        {loading ? (
-          <Loading />
-        ) : (
-          <div className="flex flex-col items-center relative overflow-x-auto">
-            <table className="w-full text-xs text-left text-gray-500 border border-gray-300">
-              <thead className="text-gray-900 uppercase bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3">ID</th>
-                  <th className="px-6 py-3">Data de abertura</th>
-                  <th className="px-6 py-3">Título</th>
-                  <th className="px-6 py-3">Status</th>
-                  <th className="px-6 py-3">Departamento</th>
+        <div className="flex flex-col items-center relative overflow-x-auto">
+          <table className="w-full text-xs text-left text-gray-500 border border-gray-300">
+            <thead className="text-gray-900 uppercase bg-gray-50">
+              <tr>
+                <th className="px-6 py-3">ID</th>
+                <th className="px-6 py-3">Data de abertura</th>
+                <th className="px-6 py-3">Título</th>
+                <th className="px-6 py-3">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tickets.slice(0, 10).map(ticket => (
+                <tr className="hover:bg-gray-50" key={ticket.id}>
+                  <td className="px-6 py-4 text-[#379E53]">{ticket.id}</td>
+                  <td className="px-6 py-4 text-[#379E53]">{ticket.date}</td>
+                  <td className="px-6 py-4 text-[#379E53]">{ticket.title}</td>
+                  <td className={`px-6 py-4 ${getStatusClass(ticket.status)}`}>{ticket.status}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {displayedTickets.map(ticket => (
-                  <tr className="hover:bg-gray-50" key={ticket.id}>
-                    <td className="px-6 py-4 text-[#379E53]">{ticket.id}</td>
-                    <td className="px-6 py-4 text-[#379E53]">{ticket.date}</td>
-                    <td className="px-6 py-4 text-[#379E53]">{ticket.title}</td>
-                    <td className={`px-6 py-4 ${getStatusClass(ticket.status)}`}>{ticket.status}</td>
-                    <td className="px-6 py-4">{ticket.departmentName}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <Footer />
