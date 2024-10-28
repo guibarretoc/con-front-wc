@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CustomerNavbar from '../AllNavBars/CustomerNavbar/CustomerNavbar';
 import Footer from './Footer';
-import fetchCustomerData from './../../services/customer/fetchCustomerData'; // Atualizando a importação
+import fetchCustomerData from './../../services/customer/fetchCustomerData'; 
 import Loading from './../Loading/Loading';
 import perfilImg from './../../assets/login/perfil.png';
 
@@ -56,11 +56,11 @@ const ProfilePage = () => {
   };
 
   if (loading) {
-    return <Loading />; // Retorna o carregando enquanto os dados estão sendo buscados
+    return <Loading />; 
   }
 
   return (
-    <div className="p-4">
+    <div>
       <CustomerNavbar />
       <div className="border border-gray-300 rounded-lg p-4 mb-4 max-w-7xl mx-auto mt-6">
         <h1 className="text-2xl font-bold mb-4">Perfil</h1>
