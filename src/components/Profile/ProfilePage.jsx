@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import CustomerNavbar from '../AllNavBars/CustomerNavbar/CustomerNavbar';
-import Footer from './Footer';
-import fetchCustomerData from './../../services/customer/fetchCustomerData'; 
-import Loading from './../Loading/Loading';
-import perfilImg from './../../assets/login/perfil.png';
+import CustomerNavbar from './../AllNavbars/CustomerNavbar/CustomerNavbar';
+import Footer from './Footer'; 
+import fetchCustomerData from './../../services/customer/fetchCustomerData';
+import Loading from '../Loading/Loading';
+import perfilImg from './../../assets/Login/perfil.png';
 
 const ProfilePage = () => {
   const [tickets, setTickets] = useState([]);
