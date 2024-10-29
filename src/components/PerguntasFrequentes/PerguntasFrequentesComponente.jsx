@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Footer from './Footer';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import CustomerNavbar from '../AllNavBars/CustomerNavbar/CustomerNavbar';
+import CustomerNavbar from '../AllNavbars/CustomerNavbar/CustomerNavbar';
 import Loading from '../Loading/Loading';
 
 function PerguntasFrequentes() {
