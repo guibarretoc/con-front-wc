@@ -3,7 +3,7 @@ import Footer from './Footer';
 import MinhasImg from '../../assets/images/MinhasImg.jpeg';
 import relogio from '../../assets/images/relogio.png';
 import email from '../../assets/images/email.png';
-import CustomerNavbar from '../AllNavBars/CustomerNavbar/CustomerNavbar';
+import CustomerNavbar from '../AllNavbars/CustomerNavbar/CustomerNavbar';
 import createTicket from '../../services/ticket/postTicketData';
 import Loading from '../Loading/Loading';
 
